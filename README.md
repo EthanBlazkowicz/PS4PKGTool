@@ -72,6 +72,8 @@ Suggestions are welcome. Report any bugs [here](https://github.com/pearlxcore/PS
 - Install, launch, and manage PS4 games with shadPS4.
 - Managed shadPS4 core and launcher builds, game library installation, save backups, and launch diagnostics.
 - Install base PKGs and merge updates into the existing shadPS4 game installation.
+  
+https://github.com/user-attachments/assets/cc316cba-cf66-4e28-a04c-6f17f39ff5e5
 
 **File Explorer Integration**
 
