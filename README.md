@@ -1,6 +1,6 @@
 # PS4 PKG Tool
 
-<img width="2560" height="1392" alt="image" src="https://github.com/user-attachments/assets/1ab9f5ba-9586-41f7-8b67-8dde2346625c" />
+<img src="https://github.com/user-attachments/assets/301cd5c5-fda9-4082-8449-46cf00f75f2a" style="transform: scaleY(-1);" />
 
 [![Github All Releases](https://img.shields.io/github/downloads/pearlxcore/PS4-PKG-Tool/total.svg)](https://github.com/pearlxcore/PS4-PKG-Tool/releases/latest)
 [![License](https://img.shields.io/github/license/pearlxcore/PS4-PKG-Tool.svg)](LICENSE)
@@ -137,20 +137,15 @@ This is only compatible with PS4 firmware that can run Flatz's Remote Package In
 
 # Screenshot
 
-<img width="2560" height="1392" alt="1" src="https://github.com/user-attachments/assets/cf77769b-cba4-4a20-b0e2-61d55c4827b0" />
-<img width="2560" height="1392" alt="2jpg" src="https://github.com/user-attachments/assets/e4e3edc7-cabf-4a5d-b925-98e5b5c9efd9" />
-<img width="2560" height="1392" alt="3" src="https://github.com/user-attachments/assets/812b191a-3416-4480-908c-b6d0b1363f07" />
-<img width="2560" height="1392" alt="4" src="https://github.com/user-attachments/assets/454b9c85-be15-4e7e-8df6-0a57e554b95e" />
-<img width="2560" height="1392" alt="5" src="https://github.com/user-attachments/assets/6c8a9745-9bcf-473c-b056-0a1e47493726" />
-<img width="2560" height="1392" alt="6" src="https://github.com/user-attachments/assets/83b23e6c-4ebf-4f99-ad8f-1f88327a595c" />
-<img width="2560" height="1392" alt="7" src="https://github.com/user-attachments/assets/9ec58860-4fba-4e65-b80b-d9dfb5d144a8" />
-<img width="2560" height="1391" alt="8" src="https://github.com/user-attachments/assets/7b01250f-0a27-4cbf-8adc-081005fdc358" />
-<img width="2557" height="1390" alt="9" src="https://github.com/user-attachments/assets/ae0b7956-6d56-422f-b39c-f8a41d24db81" />
-<img width="1006" height="632" alt="10" src="https://github.com/user-attachments/assets/5af7f7b9-1c0e-4b8b-89a4-97b46aaa3427" />
-<img width="1006" height="632" alt="11" src="https://github.com/user-attachments/assets/4dd60694-cb59-4560-a4be-ba5bbf1c3520" />
-<img width="700" height="597" alt="12" src="https://github.com/user-attachments/assets/49728d64-d0d2-4374-b502-1941ad17c855" />
-
-
+  <img src="https://github.com/user-attachments/assets/301cd5c5-fda9-4082-8449-46cf00f75f2a" style="transform: scaleY(-1);" />
+  <img src="https://github.com/user-attachments/assets/194bf31e-6eb8-4815-8cb4-8085a9575072" style="transform: scaleY(-1);" />
+  <img src="https://github.com/user-attachments/assets/b4687b3c-60b5-4a50-abda-abc6c0a881d0" style="transform: scaleY(-1);" />
+  <img src="https://github.com/user-attachments/assets/8c8412ce-9ec8-4020-83c7-900943d2f465" style="transform: scaleY(-1);" />
+  <img src="https://github.com/user-attachments/assets/9401046f-c6a9-46f4-aadb-ae151336b384" style="transform: scaleY(-1);" />
+  <img src="https://github.com/user-attachments/assets/4de74b0d-b4ae-4cd0-84ae-9a99626ae715" style="transform: scaleY(-1);" />
+  <img src="https://github.com/user-attachments/assets/2ceef9d0-a5c0-4d02-b5a8-4cf09b340fbe" style="transform: scaleY(-1);" />
+  <img src="https://github.com/user-attachments/assets/238d3abe-8d63-4a16-9740-65b1d9c6db82" style="transform: scaleY(-1);" />
+  <img src="https://github.com/user-attachments/assets/3a3d7ad4-1f90-43b4-be93-f7418b3ae647" style="transform: scaleY(-1);" />
 
 # Download
 
