@@ -2,7 +2,7 @@
   "profiles": {
     "PS4PKGTool": {
       "commandName": "Project",
-      "commandLineArgs": "\"B:\\PKG\\Base + Update\\Disgaea 1 Complete\\CUSA13171.pkg\""
+      "commandLineArgs": "\"B:\\PKG\\Base + Update\\AO International Tennis\\AO International Tennis [CUSA09105] 00 - Base.pkg\""
     },
     "Profile 1": {
       "commandName": "Project"

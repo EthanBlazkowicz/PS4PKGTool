@@ -234,7 +234,6 @@ namespace PS4PKGTool
             // 
             // miHeaderConfigFolder
             // 
-            miHeaderConfigFolder.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             miHeaderConfigFolder.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             miHeaderConfigFolder.Name = "miHeaderConfigFolder";
             miHeaderConfigFolder.Size = new System.Drawing.Size(227, 22);
@@ -243,7 +242,6 @@ namespace PS4PKGTool
             // 
             // miHeaderManagedBuilds
             // 
-            miHeaderManagedBuilds.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             miHeaderManagedBuilds.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             miHeaderManagedBuilds.Name = "miHeaderManagedBuilds";
             miHeaderManagedBuilds.Size = new System.Drawing.Size(227, 22);
@@ -252,7 +250,6 @@ namespace PS4PKGTool
             // 
             // miHeaderGameLibrary
             // 
-            miHeaderGameLibrary.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             miHeaderGameLibrary.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             miHeaderGameLibrary.Name = "miHeaderGameLibrary";
             miHeaderGameLibrary.Size = new System.Drawing.Size(227, 22);
@@ -261,7 +258,6 @@ namespace PS4PKGTool
             // 
             // miHeaderCopyEnvironmentInfo
             // 
-            miHeaderCopyEnvironmentInfo.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             miHeaderCopyEnvironmentInfo.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             miHeaderCopyEnvironmentInfo.Name = "miHeaderCopyEnvironmentInfo";
             miHeaderCopyEnvironmentInfo.Size = new System.Drawing.Size(227, 22);
@@ -289,7 +285,6 @@ namespace PS4PKGTool
             // 
             // toolStripManagerStatus
             // 
-            toolStripManagerStatus.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripManagerStatus.Name = "toolStripManagerStatus";
             toolStripManagerStatus.Size = new System.Drawing.Size(0, 0);
             toolStripManagerStatus.Spring = true;
@@ -797,7 +792,6 @@ namespace PS4PKGTool
             // 
             // picManagerGameIcon
             // 
-            picManagerGameIcon.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             picManagerGameIcon.Location = new System.Drawing.Point(476, 12);
             picManagerGameIcon.Name = "picManagerGameIcon";
             picManagerGameIcon.Size = new System.Drawing.Size(271, 200);
@@ -905,7 +899,6 @@ namespace PS4PKGTool
             // 
             // tabPageCore
             // 
-            tabPageCore.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             tabPageCore.Controls.Add(lstCoreBuilds);
             tabPageCore.Location = new System.Drawing.Point(4, 32);
             tabPageCore.Name = "tabPageCore";
@@ -928,7 +921,6 @@ namespace PS4PKGTool
             // 
             // tabPageLauncher
             // 
-            tabPageLauncher.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             tabPageLauncher.Controls.Add(lstLauncherBuilds);
             tabPageLauncher.Location = new System.Drawing.Point(4, 32);
             tabPageLauncher.Name = "tabPageLauncher";
@@ -1321,7 +1313,6 @@ namespace PS4PKGTool
             // 
             // tabCheatsDefinitions
             // 
-            tabCheatsDefinitions.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             tabCheatsDefinitions.Controls.Add(dgvPatchesCheats);
             tabCheatsDefinitions.Location = new System.Drawing.Point(4, 32);
             tabCheatsDefinitions.Name = "tabCheatsDefinitions";
@@ -1377,7 +1368,6 @@ namespace PS4PKGTool
             // 
             // tabPatchDefinitions
             // 
-            tabPatchDefinitions.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             tabPatchDefinitions.Controls.Add(dgvPatches);
             tabPatchDefinitions.Location = new System.Drawing.Point(4, 32);
             tabPatchDefinitions.Name = "tabPatchDefinitions";
@@ -1722,7 +1712,6 @@ namespace PS4PKGTool
             // 
             // miGameAddReport
             // 
-            miGameAddReport.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             miGameAddReport.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             miGameAddReport.Name = "miGameAddReport";
             miGameAddReport.Size = new System.Drawing.Size(202, 22);
@@ -1731,7 +1720,6 @@ namespace PS4PKGTool
             // 
             // miGameCopyInfo
             // 
-            miGameCopyInfo.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             miGameCopyInfo.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             miGameCopyInfo.Name = "miGameCopyInfo";
             miGameCopyInfo.Size = new System.Drawing.Size(202, 22);
@@ -1740,7 +1728,6 @@ namespace PS4PKGTool
             // 
             // miGameUninstall
             // 
-            miGameUninstall.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             miGameUninstall.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             miGameUninstall.Name = "miGameUninstall";
             miGameUninstall.Size = new System.Drawing.Size(202, 22);
@@ -1756,7 +1743,6 @@ namespace PS4PKGTool
             // 
             // miMaintenanceReset
             // 
-            miMaintenanceReset.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             miMaintenanceReset.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             miMaintenanceReset.Name = "miMaintenanceReset";
             miMaintenanceReset.Size = new System.Drawing.Size(227, 22);
@@ -1765,7 +1751,6 @@ namespace PS4PKGTool
             // 
             // miMaintenanceRemoveAll
             // 
-            miMaintenanceRemoveAll.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             miMaintenanceRemoveAll.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             miMaintenanceRemoveAll.Name = "miMaintenanceRemoveAll";
             miMaintenanceRemoveAll.Size = new System.Drawing.Size(227, 22);
@@ -1774,7 +1759,6 @@ namespace PS4PKGTool
             // 
             // miMaintenanceOpenFolder
             // 
-            miMaintenanceOpenFolder.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             miMaintenanceOpenFolder.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             miMaintenanceOpenFolder.Name = "miMaintenanceOpenFolder";
             miMaintenanceOpenFolder.Size = new System.Drawing.Size(227, 22);

@@ -609,7 +609,6 @@ namespace PS4PKGTool
             // 
             // toolStripMenuItem94
             // 
-            toolStripMenuItem94.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripMenuItem94.Enabled = false;
             toolStripMenuItem94.Font = new System.Drawing.Font("Segoe UI", 9F);
             toolStripMenuItem94.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
@@ -621,7 +620,6 @@ namespace PS4PKGTool
             // 
             // checkForDuplicatePKGToolStripMenuItem2
             // 
-            checkForDuplicatePKGToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             checkForDuplicatePKGToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             checkForDuplicatePKGToolStripMenuItem2.Name = "checkForDuplicatePKGToolStripMenuItem2";
             checkForDuplicatePKGToolStripMenuItem2.Size = new System.Drawing.Size(305, 22);
@@ -630,7 +628,6 @@ namespace PS4PKGTool
             // 
             // checkForPatchesMissingBasePKGToolStripMenuItem2
             // 
-            checkForPatchesMissingBasePKGToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             checkForPatchesMissingBasePKGToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             checkForPatchesMissingBasePKGToolStripMenuItem2.Name = "checkForPatchesMissingBasePKGToolStripMenuItem2";
             checkForPatchesMissingBasePKGToolStripMenuItem2.Size = new System.Drawing.Size(305, 22);
@@ -639,7 +636,6 @@ namespace PS4PKGTool
             // 
             // globalExportPKGListToExcelToolStripMenuItem2
             // 
-            globalExportPKGListToExcelToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             globalExportPKGListToExcelToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             globalExportPKGListToExcelToolStripMenuItem2.ImageScaling = ToolStripItemImageScaling.None;
             globalExportPKGListToExcelToolStripMenuItem2.Name = "globalExportPKGListToExcelToolStripMenuItem2";
@@ -650,7 +646,6 @@ namespace PS4PKGTool
             // 
             // toolStripMenuItem3
             // 
-            toolStripMenuItem3.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripMenuItem3.DropDownItems.AddRange(new ToolStripItem[] { globalExtractImagesAndIconToolStripMenuItem2, globalExtractImageOnlyToolStripMenuItem2, globalExtractIconOnlyToolStripMenuItem2 });
             toolStripMenuItem3.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             toolStripMenuItem3.ImageScaling = ToolStripItemImageScaling.None;
@@ -661,7 +656,6 @@ namespace PS4PKGTool
             // 
             // globalExtractImagesAndIconToolStripMenuItem2
             // 
-            globalExtractImagesAndIconToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             globalExtractImagesAndIconToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             globalExtractImagesAndIconToolStripMenuItem2.Name = "globalExtractImagesAndIconToolStripMenuItem2";
             globalExtractImagesAndIconToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
@@ -670,7 +664,6 @@ namespace PS4PKGTool
             // 
             // globalExtractImageOnlyToolStripMenuItem2
             // 
-            globalExtractImageOnlyToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             globalExtractImageOnlyToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             globalExtractImageOnlyToolStripMenuItem2.Name = "globalExtractImageOnlyToolStripMenuItem2";
             globalExtractImageOnlyToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
@@ -679,7 +672,6 @@ namespace PS4PKGTool
             // 
             // globalExtractIconOnlyToolStripMenuItem2
             // 
-            globalExtractIconOnlyToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             globalExtractIconOnlyToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             globalExtractIconOnlyToolStripMenuItem2.Name = "globalExtractIconOnlyToolStripMenuItem2";
             globalExtractIconOnlyToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
@@ -688,7 +680,6 @@ namespace PS4PKGTool
             // 
             // toolStripMenuItem111
             // 
-            toolStripMenuItem111.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripMenuItem111.DropDownItems.AddRange(new ToolStripItem[] { renameAllPkg1ToolStripMenuItem2, renameAllPkg2ToolStripMenuItem2, renameAllPkg3ToolStripMenuItem2, renameAllPkg4ToolStripMenuItem2, renameAllPkg5ToolStripMenuItem2, renameAllPkg6ToolStripMenuItem2, renameAllPkg7ToolStripMenuItem2, renameAllPkg8ToolStripMenuItem2, renameAllPkg9ToolStripMenuItem2, renameAllPkg10ToolStripMenuItem2, renameAllPkg11ToolStripMenuItem2, renameAllPkg12ToolStripMenuItem2 });
             toolStripMenuItem111.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             toolStripMenuItem111.ImageScaling = ToolStripItemImageScaling.None;
@@ -699,7 +690,6 @@ namespace PS4PKGTool
             // 
             // renameAllPkg1ToolStripMenuItem2
             // 
-            renameAllPkg1ToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameAllPkg1ToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameAllPkg1ToolStripMenuItem2.Name = "renameAllPkg1ToolStripMenuItem2";
             renameAllPkg1ToolStripMenuItem2.Size = new System.Drawing.Size(314, 22);
@@ -708,7 +698,6 @@ namespace PS4PKGTool
             // 
             // renameAllPkg2ToolStripMenuItem2
             // 
-            renameAllPkg2ToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameAllPkg2ToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameAllPkg2ToolStripMenuItem2.Name = "renameAllPkg2ToolStripMenuItem2";
             renameAllPkg2ToolStripMenuItem2.Size = new System.Drawing.Size(314, 22);
@@ -717,7 +706,6 @@ namespace PS4PKGTool
             // 
             // renameAllPkg3ToolStripMenuItem2
             // 
-            renameAllPkg3ToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameAllPkg3ToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameAllPkg3ToolStripMenuItem2.Name = "renameAllPkg3ToolStripMenuItem2";
             renameAllPkg3ToolStripMenuItem2.Size = new System.Drawing.Size(314, 22);
@@ -726,7 +714,6 @@ namespace PS4PKGTool
             // 
             // renameAllPkg4ToolStripMenuItem2
             // 
-            renameAllPkg4ToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameAllPkg4ToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameAllPkg4ToolStripMenuItem2.Name = "renameAllPkg4ToolStripMenuItem2";
             renameAllPkg4ToolStripMenuItem2.Size = new System.Drawing.Size(314, 22);
@@ -735,7 +722,6 @@ namespace PS4PKGTool
             // 
             // renameAllPkg5ToolStripMenuItem2
             // 
-            renameAllPkg5ToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameAllPkg5ToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameAllPkg5ToolStripMenuItem2.Name = "renameAllPkg5ToolStripMenuItem2";
             renameAllPkg5ToolStripMenuItem2.Size = new System.Drawing.Size(314, 22);
@@ -744,7 +730,6 @@ namespace PS4PKGTool
             // 
             // renameAllPkg6ToolStripMenuItem2
             // 
-            renameAllPkg6ToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameAllPkg6ToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameAllPkg6ToolStripMenuItem2.Name = "renameAllPkg6ToolStripMenuItem2";
             renameAllPkg6ToolStripMenuItem2.Size = new System.Drawing.Size(314, 22);
@@ -753,7 +738,6 @@ namespace PS4PKGTool
             // 
             // renameAllPkg7ToolStripMenuItem2
             // 
-            renameAllPkg7ToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameAllPkg7ToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameAllPkg7ToolStripMenuItem2.Name = "renameAllPkg7ToolStripMenuItem2";
             renameAllPkg7ToolStripMenuItem2.Size = new System.Drawing.Size(314, 22);
@@ -762,7 +746,6 @@ namespace PS4PKGTool
             // 
             // renameAllPkg8ToolStripMenuItem2
             // 
-            renameAllPkg8ToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameAllPkg8ToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameAllPkg8ToolStripMenuItem2.Name = "renameAllPkg8ToolStripMenuItem2";
             renameAllPkg8ToolStripMenuItem2.Size = new System.Drawing.Size(314, 22);
@@ -771,7 +754,6 @@ namespace PS4PKGTool
             // 
             // renameAllPkg9ToolStripMenuItem2
             // 
-            renameAllPkg9ToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameAllPkg9ToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameAllPkg9ToolStripMenuItem2.Name = "renameAllPkg9ToolStripMenuItem2";
             renameAllPkg9ToolStripMenuItem2.Size = new System.Drawing.Size(314, 22);
@@ -780,7 +762,6 @@ namespace PS4PKGTool
             // 
             // renameAllPkg10ToolStripMenuItem2
             // 
-            renameAllPkg10ToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameAllPkg10ToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameAllPkg10ToolStripMenuItem2.Name = "renameAllPkg10ToolStripMenuItem2";
             renameAllPkg10ToolStripMenuItem2.Size = new System.Drawing.Size(314, 22);
@@ -789,7 +770,6 @@ namespace PS4PKGTool
             // 
             // renameAllPkg11ToolStripMenuItem2
             // 
-            renameAllPkg11ToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameAllPkg11ToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameAllPkg11ToolStripMenuItem2.Name = "renameAllPkg11ToolStripMenuItem2";
             renameAllPkg11ToolStripMenuItem2.Size = new System.Drawing.Size(314, 22);
@@ -798,7 +778,6 @@ namespace PS4PKGTool
             // 
             // renameAllPkg12ToolStripMenuItem2
             // 
-            renameAllPkg12ToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameAllPkg12ToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameAllPkg12ToolStripMenuItem2.Name = "renameAllPkg12ToolStripMenuItem2";
             renameAllPkg12ToolStripMenuItem2.Size = new System.Drawing.Size(314, 22);
@@ -807,7 +786,6 @@ namespace PS4PKGTool
             // 
             // toolStripMenuItem38
             // 
-            toolStripMenuItem38.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripMenuItem38.DropDownItems.AddRange(new ToolStripItem[] { movePkgTitleToolStripMenuItem2, moveByPkgTitleIdToolStripMenuItem, movePkgTypeToolStripMenuItem2, movePkgCategoryToolStripMenuItem2, movePkgRegionToolStripMenuItem2, movePkgSingleFolderToolStripMenuItem2 });
             toolStripMenuItem38.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             toolStripMenuItem38.ImageScaling = ToolStripItemImageScaling.None;
@@ -818,7 +796,6 @@ namespace PS4PKGTool
             // 
             // movePkgTitleToolStripMenuItem2
             // 
-            movePkgTitleToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             movePkgTitleToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             movePkgTitleToolStripMenuItem2.Name = "movePkgTitleToolStripMenuItem2";
             movePkgTitleToolStripMenuItem2.Size = new System.Drawing.Size(314, 22);
@@ -827,7 +804,6 @@ namespace PS4PKGTool
             // 
             // moveByPkgTitleIdToolStripMenuItem
             // 
-            moveByPkgTitleIdToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             moveByPkgTitleIdToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             moveByPkgTitleIdToolStripMenuItem.Name = "moveByPkgTitleIdToolStripMenuItem";
             moveByPkgTitleIdToolStripMenuItem.Size = new System.Drawing.Size(314, 22);
@@ -836,7 +812,6 @@ namespace PS4PKGTool
             // 
             // movePkgTypeToolStripMenuItem2
             // 
-            movePkgTypeToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             movePkgTypeToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             movePkgTypeToolStripMenuItem2.Name = "movePkgTypeToolStripMenuItem2";
             movePkgTypeToolStripMenuItem2.Size = new System.Drawing.Size(314, 22);
@@ -845,7 +820,6 @@ namespace PS4PKGTool
             // 
             // movePkgCategoryToolStripMenuItem2
             // 
-            movePkgCategoryToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             movePkgCategoryToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             movePkgCategoryToolStripMenuItem2.Name = "movePkgCategoryToolStripMenuItem2";
             movePkgCategoryToolStripMenuItem2.Size = new System.Drawing.Size(314, 22);
@@ -854,7 +828,6 @@ namespace PS4PKGTool
             // 
             // movePkgRegionToolStripMenuItem2
             // 
-            movePkgRegionToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             movePkgRegionToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             movePkgRegionToolStripMenuItem2.Name = "movePkgRegionToolStripMenuItem2";
             movePkgRegionToolStripMenuItem2.Size = new System.Drawing.Size(314, 22);
@@ -863,7 +836,6 @@ namespace PS4PKGTool
             // 
             // movePkgSingleFolderToolStripMenuItem2
             // 
-            movePkgSingleFolderToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             movePkgSingleFolderToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             movePkgSingleFolderToolStripMenuItem2.Name = "movePkgSingleFolderToolStripMenuItem2";
             movePkgSingleFolderToolStripMenuItem2.Size = new System.Drawing.Size(314, 22);
@@ -872,7 +844,6 @@ namespace PS4PKGTool
             // 
             // toolStripSeparator2
             // 
-            toolStripSeparator2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripSeparator2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             toolStripSeparator2.Margin = new Padding(0, 0, 0, 1);
             toolStripSeparator2.Name = "toolStripSeparator2";
@@ -880,7 +851,6 @@ namespace PS4PKGTool
             // 
             // GroupActionTitleStripMenuItem
             // 
-            GroupActionTitleStripMenuItem.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             GroupActionTitleStripMenuItem.Enabled = false;
             GroupActionTitleStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             GroupActionTitleStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
@@ -892,7 +862,6 @@ namespace PS4PKGTool
             // 
             // toolStripMenuItem127
             // 
-            toolStripMenuItem127.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripMenuItem127.DropDownItems.AddRange(new ToolStripItem[] { copyTitleIdtoolStripMenuItem2, copyContentIdtoolStripMenuItem2, copyTitleToolStripMenuItem2, copyFilenameToolStripMenuItem2 });
             toolStripMenuItem127.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             toolStripMenuItem127.ImageScaling = ToolStripItemImageScaling.None;
@@ -903,7 +872,6 @@ namespace PS4PKGTool
             // 
             // copyTitleIdtoolStripMenuItem2
             // 
-            copyTitleIdtoolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             copyTitleIdtoolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             copyTitleIdtoolStripMenuItem2.Name = "copyTitleIdtoolStripMenuItem2";
             copyTitleIdtoolStripMenuItem2.Size = new System.Drawing.Size(145, 22);
@@ -912,7 +880,6 @@ namespace PS4PKGTool
             // 
             // copyContentIdtoolStripMenuItem2
             // 
-            copyContentIdtoolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             copyContentIdtoolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             copyContentIdtoolStripMenuItem2.Name = "copyContentIdtoolStripMenuItem2";
             copyContentIdtoolStripMenuItem2.Size = new System.Drawing.Size(145, 22);
@@ -921,7 +888,6 @@ namespace PS4PKGTool
             // 
             // copyTitleToolStripMenuItem2
             // 
-            copyTitleToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             copyTitleToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             copyTitleToolStripMenuItem2.Name = "copyTitleToolStripMenuItem2";
             copyTitleToolStripMenuItem2.Size = new System.Drawing.Size(145, 22);
@@ -930,7 +896,6 @@ namespace PS4PKGTool
             // 
             // copyFilenameToolStripMenuItem2
             // 
-            copyFilenameToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             copyFilenameToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             copyFilenameToolStripMenuItem2.Name = "copyFilenameToolStripMenuItem2";
             copyFilenameToolStripMenuItem2.Size = new System.Drawing.Size(145, 22);
@@ -939,7 +904,6 @@ namespace PS4PKGTool
             // 
             // backportToolStripMenuItem
             // 
-            backportToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             backportToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { setBackportedToolStripMenuItem2, setBackportRemarksToolStripMenuItem, toolStripSeparator9, removeBackportedToolStripMenuItem2 });
             backportToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             backportToolStripMenuItem.Name = "backportToolStripMenuItem";
@@ -948,7 +912,6 @@ namespace PS4PKGTool
             // 
             // setBackportedToolStripMenuItem2
             // 
-            setBackportedToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             setBackportedToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             setBackportedToolStripMenuItem2.Name = "setBackportedToolStripMenuItem2";
             setBackportedToolStripMenuItem2.Size = new System.Drawing.Size(208, 22);
@@ -957,7 +920,6 @@ namespace PS4PKGTool
             // 
             // setBackportRemarksToolStripMenuItem
             // 
-            setBackportRemarksToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             setBackportRemarksToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { backportRemarkTextboxtoolStripTextBox2, setRemarktoolStripMenuItem2 });
             setBackportRemarksToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             setBackportRemarksToolStripMenuItem.Name = "setBackportRemarksToolStripMenuItem";
@@ -971,7 +933,6 @@ namespace PS4PKGTool
             // 
             // setRemarktoolStripMenuItem2
             // 
-            setRemarktoolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             setRemarktoolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             setRemarktoolStripMenuItem2.Name = "setRemarktoolStripMenuItem2";
             setRemarktoolStripMenuItem2.Size = new System.Drawing.Size(240, 22);
@@ -980,7 +941,6 @@ namespace PS4PKGTool
             // 
             // toolStripSeparator9
             // 
-            toolStripSeparator9.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripSeparator9.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             toolStripSeparator9.Margin = new Padding(0, 0, 0, 1);
             toolStripSeparator9.Name = "toolStripSeparator9";
@@ -988,7 +948,6 @@ namespace PS4PKGTool
             // 
             // removeBackportedToolStripMenuItem2
             // 
-            removeBackportedToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             removeBackportedToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             removeBackportedToolStripMenuItem2.Name = "removeBackportedToolStripMenuItem2";
             removeBackportedToolStripMenuItem2.Size = new System.Drawing.Size(208, 22);
@@ -997,7 +956,6 @@ namespace PS4PKGTool
             // 
             // deletePkgtoolStripMenuItem2
             // 
-            deletePkgtoolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             deletePkgtoolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             deletePkgtoolStripMenuItem2.ImageScaling = ToolStripItemImageScaling.None;
             deletePkgtoolStripMenuItem2.Name = "deletePkgtoolStripMenuItem2";
@@ -1008,7 +966,6 @@ namespace PS4PKGTool
             // 
             // selectedExportPKGListToExcelToolStripMenuItem2
             // 
-            selectedExportPKGListToExcelToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             selectedExportPKGListToExcelToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             selectedExportPKGListToExcelToolStripMenuItem2.ImageScaling = ToolStripItemImageScaling.None;
             selectedExportPKGListToExcelToolStripMenuItem2.Name = "selectedExportPKGListToExcelToolStripMenuItem2";
@@ -1019,7 +976,6 @@ namespace PS4PKGTool
             // 
             // mergeSelectedBaseAndUpdateToolStripMenuItem
             // 
-            mergeSelectedBaseAndUpdateToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             mergeSelectedBaseAndUpdateToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             mergeSelectedBaseAndUpdateToolStripMenuItem.Name = "mergeSelectedBaseAndUpdateToolStripMenuItem";
             mergeSelectedBaseAndUpdateToolStripMenuItem.Size = new System.Drawing.Size(305, 22);
@@ -1028,7 +984,6 @@ namespace PS4PKGTool
             // 
             // convertSelectedToFfpfscToolStripMenuItem
             // 
-            convertSelectedToFfpfscToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             convertSelectedToFfpfscToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             convertSelectedToFfpfscToolStripMenuItem.Name = "convertSelectedToFfpfscToolStripMenuItem";
             convertSelectedToFfpfscToolStripMenuItem.Size = new System.Drawing.Size(305, 22);
@@ -1037,7 +992,6 @@ namespace PS4PKGTool
             // 
             // extractSelectedFullPkgToolStripMenuItem
             // 
-            extractSelectedFullPkgToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             extractSelectedFullPkgToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             extractSelectedFullPkgToolStripMenuItem.Name = "extractSelectedFullPkgToolStripMenuItem";
             extractSelectedFullPkgToolStripMenuItem.Size = new System.Drawing.Size(305, 22);
@@ -1046,7 +1000,6 @@ namespace PS4PKGTool
             // 
             // GroupActionExtacrtImageToolStripMenuItem
             // 
-            GroupActionExtacrtImageToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             GroupActionExtacrtImageToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { selectedExtractImagesAndIconToolStripMenuItem2, selectedExtractImageOnlyToolStripMenuItem2, selectedExtractIconOnlyToolStripMenuItem2 });
             GroupActionExtacrtImageToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             GroupActionExtacrtImageToolStripMenuItem.ImageScaling = ToolStripItemImageScaling.None;
@@ -1057,7 +1010,6 @@ namespace PS4PKGTool
             // 
             // selectedExtractImagesAndIconToolStripMenuItem2
             // 
-            selectedExtractImagesAndIconToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             selectedExtractImagesAndIconToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             selectedExtractImagesAndIconToolStripMenuItem2.Name = "selectedExtractImagesAndIconToolStripMenuItem2";
             selectedExtractImagesAndIconToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
@@ -1066,7 +1018,6 @@ namespace PS4PKGTool
             // 
             // selectedExtractImageOnlyToolStripMenuItem2
             // 
-            selectedExtractImageOnlyToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             selectedExtractImageOnlyToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             selectedExtractImageOnlyToolStripMenuItem2.Name = "selectedExtractImageOnlyToolStripMenuItem2";
             selectedExtractImageOnlyToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
@@ -1075,7 +1026,6 @@ namespace PS4PKGTool
             // 
             // selectedExtractIconOnlyToolStripMenuItem2
             // 
-            selectedExtractIconOnlyToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             selectedExtractIconOnlyToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             selectedExtractIconOnlyToolStripMenuItem2.Name = "selectedExtractIconOnlyToolStripMenuItem2";
             selectedExtractIconOnlyToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
@@ -1084,7 +1034,6 @@ namespace PS4PKGTool
             // 
             // toolStripMenuItem133
             // 
-            toolStripMenuItem133.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripMenuItem133.DropDownItems.AddRange(new ToolStripItem[] { renameSelectedPkg1ToolStripMenuItem2, renameSelectedPkg2ToolStripMenuItem2, renameSelectedPkg3ToolStripMenuItem2, renameSelectedPkg4ToolStripMenuItem2, renameSelectedPkg5ToolStripMenuItem2, renameSelectedPkg6ToolStripMenuItem2, renameSelectedPkg7ToolStripMenuItem2, renameSelectedPkg8ToolStripMenuItem2, renameSelectedPkg9ToolStripMenuItem2, renameSelectedPkg10ToolStripMenuItem2, renameSelectedPkg11ToolStripMenuItem2, renameSelectedPkg12ToolStripMenuItem2 });
             toolStripMenuItem133.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             toolStripMenuItem133.ImageScaling = ToolStripItemImageScaling.None;
@@ -1095,7 +1044,6 @@ namespace PS4PKGTool
             // 
             // renameSelectedPkg1ToolStripMenuItem2
             // 
-            renameSelectedPkg1ToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameSelectedPkg1ToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameSelectedPkg1ToolStripMenuItem2.Name = "renameSelectedPkg1ToolStripMenuItem2";
             renameSelectedPkg1ToolStripMenuItem2.Size = new System.Drawing.Size(314, 22);
@@ -1104,7 +1052,6 @@ namespace PS4PKGTool
             // 
             // renameSelectedPkg2ToolStripMenuItem2
             // 
-            renameSelectedPkg2ToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameSelectedPkg2ToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameSelectedPkg2ToolStripMenuItem2.Name = "renameSelectedPkg2ToolStripMenuItem2";
             renameSelectedPkg2ToolStripMenuItem2.Size = new System.Drawing.Size(314, 22);
@@ -1113,7 +1060,6 @@ namespace PS4PKGTool
             // 
             // renameSelectedPkg3ToolStripMenuItem2
             // 
-            renameSelectedPkg3ToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameSelectedPkg3ToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameSelectedPkg3ToolStripMenuItem2.Name = "renameSelectedPkg3ToolStripMenuItem2";
             renameSelectedPkg3ToolStripMenuItem2.Size = new System.Drawing.Size(314, 22);
@@ -1122,7 +1068,6 @@ namespace PS4PKGTool
             // 
             // renameSelectedPkg4ToolStripMenuItem2
             // 
-            renameSelectedPkg4ToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameSelectedPkg4ToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameSelectedPkg4ToolStripMenuItem2.Name = "renameSelectedPkg4ToolStripMenuItem2";
             renameSelectedPkg4ToolStripMenuItem2.Size = new System.Drawing.Size(314, 22);
@@ -1131,7 +1076,6 @@ namespace PS4PKGTool
             // 
             // renameSelectedPkg5ToolStripMenuItem2
             // 
-            renameSelectedPkg5ToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameSelectedPkg5ToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameSelectedPkg5ToolStripMenuItem2.Name = "renameSelectedPkg5ToolStripMenuItem2";
             renameSelectedPkg5ToolStripMenuItem2.Size = new System.Drawing.Size(314, 22);
@@ -1140,7 +1084,6 @@ namespace PS4PKGTool
             // 
             // renameSelectedPkg6ToolStripMenuItem2
             // 
-            renameSelectedPkg6ToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameSelectedPkg6ToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameSelectedPkg6ToolStripMenuItem2.Name = "renameSelectedPkg6ToolStripMenuItem2";
             renameSelectedPkg6ToolStripMenuItem2.Size = new System.Drawing.Size(314, 22);
@@ -1149,7 +1092,6 @@ namespace PS4PKGTool
             // 
             // renameSelectedPkg7ToolStripMenuItem2
             // 
-            renameSelectedPkg7ToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameSelectedPkg7ToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameSelectedPkg7ToolStripMenuItem2.Name = "renameSelectedPkg7ToolStripMenuItem2";
             renameSelectedPkg7ToolStripMenuItem2.Size = new System.Drawing.Size(314, 22);
@@ -1158,7 +1100,6 @@ namespace PS4PKGTool
             // 
             // renameSelectedPkg8ToolStripMenuItem2
             // 
-            renameSelectedPkg8ToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameSelectedPkg8ToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameSelectedPkg8ToolStripMenuItem2.Name = "renameSelectedPkg8ToolStripMenuItem2";
             renameSelectedPkg8ToolStripMenuItem2.Size = new System.Drawing.Size(314, 22);
@@ -1167,7 +1108,6 @@ namespace PS4PKGTool
             // 
             // renameSelectedPkg9ToolStripMenuItem2
             // 
-            renameSelectedPkg9ToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameSelectedPkg9ToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameSelectedPkg9ToolStripMenuItem2.Name = "renameSelectedPkg9ToolStripMenuItem2";
             renameSelectedPkg9ToolStripMenuItem2.Size = new System.Drawing.Size(314, 22);
@@ -1176,7 +1116,6 @@ namespace PS4PKGTool
             // 
             // renameSelectedPkg10ToolStripMenuItem2
             // 
-            renameSelectedPkg10ToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameSelectedPkg10ToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameSelectedPkg10ToolStripMenuItem2.Name = "renameSelectedPkg10ToolStripMenuItem2";
             renameSelectedPkg10ToolStripMenuItem2.Size = new System.Drawing.Size(314, 22);
@@ -1185,7 +1124,6 @@ namespace PS4PKGTool
             // 
             // renameSelectedPkg11ToolStripMenuItem2
             // 
-            renameSelectedPkg11ToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameSelectedPkg11ToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameSelectedPkg11ToolStripMenuItem2.Name = "renameSelectedPkg11ToolStripMenuItem2";
             renameSelectedPkg11ToolStripMenuItem2.Size = new System.Drawing.Size(314, 22);
@@ -1194,7 +1132,6 @@ namespace PS4PKGTool
             // 
             // renameSelectedPkg12ToolStripMenuItem2
             // 
-            renameSelectedPkg12ToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameSelectedPkg12ToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameSelectedPkg12ToolStripMenuItem2.Name = "renameSelectedPkg12ToolStripMenuItem2";
             renameSelectedPkg12ToolStripMenuItem2.Size = new System.Drawing.Size(314, 22);
@@ -1203,7 +1140,6 @@ namespace PS4PKGTool
             // 
             // viewPkgChangeInfotoolStripMenuItem2
             // 
-            viewPkgChangeInfotoolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             viewPkgChangeInfotoolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             viewPkgChangeInfotoolStripMenuItem2.ImageScaling = ToolStripItemImageScaling.None;
             viewPkgChangeInfotoolStripMenuItem2.Name = "viewPkgChangeInfotoolStripMenuItem2";
@@ -1214,7 +1150,6 @@ namespace PS4PKGTool
             // 
             // viewPkgExplorerStripMenuItem2
             // 
-            viewPkgExplorerStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             viewPkgExplorerStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             viewPkgExplorerStripMenuItem2.ImageScaling = ToolStripItemImageScaling.None;
             viewPkgExplorerStripMenuItem2.Name = "viewPkgExplorerStripMenuItem2";
@@ -1225,7 +1160,6 @@ namespace PS4PKGTool
             // 
             // downloadOfficialUpdateToolStripMenuItem2
             // 
-            downloadOfficialUpdateToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             downloadOfficialUpdateToolStripMenuItem2.Enabled = false;
             downloadOfficialUpdateToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             downloadOfficialUpdateToolStripMenuItem2.ImageScaling = ToolStripItemImageScaling.None;
@@ -1237,7 +1171,6 @@ namespace PS4PKGTool
             // 
             // toolStripSeparator7
             // 
-            toolStripSeparator7.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripSeparator7.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             toolStripSeparator7.Margin = new Padding(0, 0, 0, 1);
             toolStripSeparator7.Name = "toolStripSeparator7";
@@ -1245,7 +1178,6 @@ namespace PS4PKGTool
             // 
             // toolStripMenuItem18
             // 
-            toolStripMenuItem18.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripMenuItem18.Enabled = false;
             toolStripMenuItem18.Font = new System.Drawing.Font("Segoe UI", 9F);
             toolStripMenuItem18.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
@@ -1257,7 +1189,6 @@ namespace PS4PKGTool
             // 
             // RpiCheckPkgInstalledtoolStripMenuItem2
             // 
-            RpiCheckPkgInstalledtoolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             RpiCheckPkgInstalledtoolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             RpiCheckPkgInstalledtoolStripMenuItem2.ImageScaling = ToolStripItemImageScaling.None;
             RpiCheckPkgInstalledtoolStripMenuItem2.Name = "RpiCheckPkgInstalledtoolStripMenuItem2";
@@ -1268,7 +1199,6 @@ namespace PS4PKGTool
             // 
             // RpiSendPkgtoolStripMenuItem2
             // 
-            RpiSendPkgtoolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             RpiSendPkgtoolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             RpiSendPkgtoolStripMenuItem2.ImageScaling = ToolStripItemImageScaling.None;
             RpiSendPkgtoolStripMenuItem2.Name = "RpiSendPkgtoolStripMenuItem2";
@@ -1279,7 +1209,6 @@ namespace PS4PKGTool
             // 
             // toolStripMenuItem21
             // 
-            toolStripMenuItem21.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripMenuItem21.DropDownItems.AddRange(new ToolStripItem[] { RpiUninstallBasePKGToolStripMenuItem2, RpiUninstallPatchPKGToolStripMenuItem2, RpiUninstallDlcPKGToolStripMenuItem2, RpiUninstallThemePKGToolStripMenuItem2 });
             toolStripMenuItem21.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             toolStripMenuItem21.ImageScaling = ToolStripItemImageScaling.None;
@@ -1290,7 +1219,6 @@ namespace PS4PKGTool
             // 
             // RpiUninstallBasePKGToolStripMenuItem2
             // 
-            RpiUninstallBasePKGToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             RpiUninstallBasePKGToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             RpiUninstallBasePKGToolStripMenuItem2.Name = "RpiUninstallBasePKGToolStripMenuItem2";
             RpiUninstallBasePKGToolStripMenuItem2.Size = new System.Drawing.Size(229, 22);
@@ -1299,7 +1227,6 @@ namespace PS4PKGTool
             // 
             // RpiUninstallPatchPKGToolStripMenuItem2
             // 
-            RpiUninstallPatchPKGToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             RpiUninstallPatchPKGToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             RpiUninstallPatchPKGToolStripMenuItem2.Name = "RpiUninstallPatchPKGToolStripMenuItem2";
             RpiUninstallPatchPKGToolStripMenuItem2.Size = new System.Drawing.Size(229, 22);
@@ -1308,7 +1235,6 @@ namespace PS4PKGTool
             // 
             // RpiUninstallDlcPKGToolStripMenuItem2
             // 
-            RpiUninstallDlcPKGToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             RpiUninstallDlcPKGToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             RpiUninstallDlcPKGToolStripMenuItem2.Name = "RpiUninstallDlcPKGToolStripMenuItem2";
             RpiUninstallDlcPKGToolStripMenuItem2.Size = new System.Drawing.Size(229, 22);
@@ -1317,7 +1243,6 @@ namespace PS4PKGTool
             // 
             // RpiUninstallThemePKGToolStripMenuItem2
             // 
-            RpiUninstallThemePKGToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             RpiUninstallThemePKGToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             RpiUninstallThemePKGToolStripMenuItem2.Name = "RpiUninstallThemePKGToolStripMenuItem2";
             RpiUninstallThemePKGToolStripMenuItem2.Size = new System.Drawing.Size(229, 22);
@@ -1326,7 +1251,6 @@ namespace PS4PKGTool
             // 
             // toolStripSeparatorShadps4
             // 
-            toolStripSeparatorShadps4.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripSeparatorShadps4.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             toolStripSeparatorShadps4.Margin = new Padding(0, 0, 0, 1);
             toolStripSeparatorShadps4.Name = "toolStripSeparatorShadps4";
@@ -1334,7 +1258,6 @@ namespace PS4PKGTool
             // 
             // sToolStripMenuItem
             // 
-            sToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             sToolStripMenuItem.Enabled = false;
             sToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             sToolStripMenuItem.Name = "sToolStripMenuItem";
@@ -1343,7 +1266,6 @@ namespace PS4PKGTool
             // 
             // toolStripMenuItemShadps4Launch
             // 
-            toolStripMenuItemShadps4Launch.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripMenuItemShadps4Launch.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             toolStripMenuItemShadps4Launch.Name = "toolStripMenuItemShadps4Launch";
             toolStripMenuItemShadps4Launch.Size = new System.Drawing.Size(305, 22);
@@ -1352,7 +1274,6 @@ namespace PS4PKGTool
             // 
             // toolStripMenuItemShadps4Install
             // 
-            toolStripMenuItemShadps4Install.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripMenuItemShadps4Install.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             toolStripMenuItemShadps4Install.Name = "toolStripMenuItemShadps4Install";
             toolStripMenuItemShadps4Install.Size = new System.Drawing.Size(305, 22);
@@ -1361,7 +1282,6 @@ namespace PS4PKGTool
             // 
             // toolStripMenuItemShadps4Uninstall
             // 
-            toolStripMenuItemShadps4Uninstall.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripMenuItemShadps4Uninstall.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             toolStripMenuItemShadps4Uninstall.Name = "toolStripMenuItemShadps4Uninstall";
             toolStripMenuItemShadps4Uninstall.Size = new System.Drawing.Size(305, 22);
@@ -1371,7 +1291,6 @@ namespace PS4PKGTool
             // 
             // toolStripMenuItemShadps4OpenManager
             // 
-            toolStripMenuItemShadps4OpenManager.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripMenuItemShadps4OpenManager.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             toolStripMenuItemShadps4OpenManager.Name = "toolStripMenuItemShadps4OpenManager";
             toolStripMenuItemShadps4OpenManager.Size = new System.Drawing.Size(305, 22);
@@ -1380,7 +1299,6 @@ namespace PS4PKGTool
             // 
             // toolStripMenuItemShadps4InstallSetup
             // 
-            toolStripMenuItemShadps4InstallSetup.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripMenuItemShadps4InstallSetup.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             toolStripMenuItemShadps4InstallSetup.Name = "toolStripMenuItemShadps4InstallSetup";
             toolStripMenuItemShadps4InstallSetup.Size = new System.Drawing.Size(239, 22);
@@ -1389,7 +1307,6 @@ namespace PS4PKGTool
             // 
             // toolStripMenuItemShadps4OpenLauncher
             // 
-            toolStripMenuItemShadps4OpenLauncher.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripMenuItemShadps4OpenLauncher.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             toolStripMenuItemShadps4OpenLauncher.Name = "toolStripMenuItemShadps4OpenLauncher";
             toolStripMenuItemShadps4OpenLauncher.Size = new System.Drawing.Size(239, 22);
@@ -1398,7 +1315,6 @@ namespace PS4PKGTool
             // 
             // toolStripMenuItemShadps4Configure
             // 
-            toolStripMenuItemShadps4Configure.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripMenuItemShadps4Configure.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             toolStripMenuItemShadps4Configure.Name = "toolStripMenuItemShadps4Configure";
             toolStripMenuItemShadps4Configure.Size = new System.Drawing.Size(239, 22);
@@ -1407,7 +1323,6 @@ namespace PS4PKGTool
             // 
             // toolStripMenuItemShadps4Manager
             // 
-            toolStripMenuItemShadps4Manager.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripMenuItemShadps4Manager.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             toolStripMenuItemShadps4Manager.Name = "toolStripMenuItemShadps4Manager";
             toolStripMenuItemShadps4Manager.Size = new System.Drawing.Size(168, 22);
@@ -1416,7 +1331,6 @@ namespace PS4PKGTool
             // 
             // toolStripMenuItemTools
             // 
-            toolStripMenuItemTools.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripMenuItemTools.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItemShadps4Manager });
             toolStripMenuItemTools.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             toolStripMenuItemTools.Name = "toolStripMenuItemTools";
@@ -1425,7 +1339,6 @@ namespace PS4PKGTool
             // 
             // openAppDataDirectoryToolStripMenuItem2
             // 
-            openAppDataDirectoryToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             openAppDataDirectoryToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             openAppDataDirectoryToolStripMenuItem2.Name = "openAppDataDirectoryToolStripMenuItem2";
             openAppDataDirectoryToolStripMenuItem2.Size = new System.Drawing.Size(249, 22);
@@ -1434,7 +1347,6 @@ namespace PS4PKGTool
             // 
             // toolStripMenuItem34
             // 
-            toolStripMenuItem34.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripMenuItem34.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             toolStripMenuItem34.ImageScaling = ToolStripItemImageScaling.None;
             toolStripMenuItem34.Name = "toolStripMenuItem34";
@@ -1445,7 +1357,6 @@ namespace PS4PKGTool
             // 
             // toolStripSeparator1
             // 
-            toolStripSeparator1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripSeparator1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             toolStripSeparator1.Margin = new Padding(0, 0, 0, 1);
             toolStripSeparator1.Name = "toolStripSeparator1";
@@ -1453,7 +1364,6 @@ namespace PS4PKGTool
             // 
             // toolStripSeparator5
             // 
-            toolStripSeparator5.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripSeparator5.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             toolStripSeparator5.Margin = new Padding(0, 0, 0, 1);
             toolStripSeparator5.Name = "toolStripSeparator5";
@@ -1461,7 +1371,6 @@ namespace PS4PKGTool
             // 
             // toolStripSeparator6
             // 
-            toolStripSeparator6.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripSeparator6.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             toolStripSeparator6.Margin = new Padding(0, 0, 0, 1);
             toolStripSeparator6.Name = "toolStripSeparator6";
@@ -1469,7 +1378,6 @@ namespace PS4PKGTool
             // 
             // toolStripSeparator3
             // 
-            toolStripSeparator3.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripSeparator3.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             toolStripSeparator3.Margin = new Padding(0, 0, 0, 1);
             toolStripSeparator3.Name = "toolStripSeparator3";
@@ -1498,7 +1406,6 @@ namespace PS4PKGTool
             // 
             // fileToolStripMenuItem2
             // 
-            fileToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             fileToolStripMenuItem2.DropDownItems.AddRange(new ToolStripItem[] { managePS4PKGToolStripMenuItem, settingstoolStripMenuItem, loadFromDirectoryToolStripMenuItem, loadFromManifestToolStripMenuItem, saveManifestToolStripMenuItem, emptyListToolStripMenuItem, toolStripSeparator11, exitToolStripMenuItem1 });
             fileToolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             fileToolStripMenuItem2.Name = "fileToolStripMenuItem2";
@@ -1507,7 +1414,6 @@ namespace PS4PKGTool
             // 
             // managePS4PKGToolStripMenuItem
             // 
-            managePS4PKGToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             managePS4PKGToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             managePS4PKGToolStripMenuItem.Name = "managePS4PKGToolStripMenuItem";
             managePS4PKGToolStripMenuItem.ShowShortcutKeys = false;
@@ -1518,7 +1424,6 @@ namespace PS4PKGTool
             // 
             // settingstoolStripMenuItem
             // 
-            settingstoolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             settingstoolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             settingstoolStripMenuItem.Name = "settingstoolStripMenuItem";
             settingstoolStripMenuItem.Size = new System.Drawing.Size(216, 22);
@@ -1527,7 +1432,6 @@ namespace PS4PKGTool
             // 
             // loadFromDirectoryToolStripMenuItem
             // 
-            loadFromDirectoryToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             loadFromDirectoryToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             loadFromDirectoryToolStripMenuItem.Name = "loadFromDirectoryToolStripMenuItem";
             loadFromDirectoryToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
@@ -1536,7 +1440,6 @@ namespace PS4PKGTool
             // 
             // loadFromManifestToolStripMenuItem
             // 
-            loadFromManifestToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             loadFromManifestToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             loadFromManifestToolStripMenuItem.Name = "loadFromManifestToolStripMenuItem";
             loadFromManifestToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
@@ -1545,7 +1448,6 @@ namespace PS4PKGTool
             // 
             // saveManifestToolStripMenuItem
             // 
-            saveManifestToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             saveManifestToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             saveManifestToolStripMenuItem.Name = "saveManifestToolStripMenuItem";
             saveManifestToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
@@ -1554,7 +1456,6 @@ namespace PS4PKGTool
             // 
             // emptyListToolStripMenuItem
             // 
-            emptyListToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             emptyListToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             emptyListToolStripMenuItem.Name = "emptyListToolStripMenuItem";
             emptyListToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
@@ -1563,7 +1464,6 @@ namespace PS4PKGTool
             // 
             // toolStripSeparator11
             // 
-            toolStripSeparator11.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripSeparator11.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             toolStripSeparator11.Margin = new Padding(0, 0, 0, 1);
             toolStripSeparator11.Name = "toolStripSeparator11";
@@ -1572,7 +1472,6 @@ namespace PS4PKGTool
             // 
             // exitToolStripMenuItem1
             // 
-            exitToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             exitToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
             exitToolStripMenuItem1.Size = new System.Drawing.Size(216, 22);
@@ -1581,7 +1480,6 @@ namespace PS4PKGTool
             // 
             // toolStripMenuItem144
             // 
-            toolStripMenuItem144.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripMenuItem144.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItem159, toolStripMenuItem160, toolStripMenuItem158 });
             toolStripMenuItem144.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             toolStripMenuItem144.Name = "toolStripMenuItem144";
@@ -1590,7 +1488,6 @@ namespace PS4PKGTool
             // 
             // toolStripMenuItem159
             // 
-            toolStripMenuItem159.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripMenuItem159.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             toolStripMenuItem159.Name = "toolStripMenuItem159";
             toolStripMenuItem159.Size = new System.Drawing.Size(165, 22);
@@ -1599,7 +1496,6 @@ namespace PS4PKGTool
             // 
             // toolStripMenuItem160
             // 
-            toolStripMenuItem160.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripMenuItem160.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             toolStripMenuItem160.Name = "toolStripMenuItem160";
             toolStripMenuItem160.Size = new System.Drawing.Size(165, 22);
@@ -1608,7 +1504,6 @@ namespace PS4PKGTool
             // 
             // toolStripMenuItem158
             // 
-            toolStripMenuItem158.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripMenuItem158.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             toolStripMenuItem158.Name = "toolStripMenuItem158";
             toolStripMenuItem158.Size = new System.Drawing.Size(165, 22);
@@ -1617,7 +1512,6 @@ namespace PS4PKGTool
             // 
             // toolStripSeparator12
             // 
-            toolStripSeparator12.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripSeparator12.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             toolStripSeparator12.Margin = new Padding(0, 0, 0, 1);
             toolStripSeparator12.Name = "toolStripSeparator12";
@@ -1634,7 +1528,6 @@ namespace PS4PKGTool
             // 
             // checkForDuplicatePKGToolStripMenuItem1
             // 
-            checkForDuplicatePKGToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             checkForDuplicatePKGToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             checkForDuplicatePKGToolStripMenuItem1.Name = "checkForDuplicatePKGToolStripMenuItem1";
             checkForDuplicatePKGToolStripMenuItem1.Size = new System.Drawing.Size(254, 22);
@@ -1643,7 +1536,6 @@ namespace PS4PKGTool
             // 
             // globalExportPKGListToExcelToolStripMenuItem1
             // 
-            globalExportPKGListToExcelToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             globalExportPKGListToExcelToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             globalExportPKGListToExcelToolStripMenuItem1.Name = "globalExportPKGListToExcelToolStripMenuItem1";
             globalExportPKGListToExcelToolStripMenuItem1.Size = new System.Drawing.Size(254, 22);
@@ -1652,7 +1544,6 @@ namespace PS4PKGTool
             // 
             // extractImageAndBackgroundToolStripMenuItem
             // 
-            extractImageAndBackgroundToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             extractImageAndBackgroundToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { globalExtractImagesAndIconToolStripMenuItem1, globalExtractImageOnlyToolStripMenuItem1, globalExtractIconOnlyToolStripMenuItem1 });
             extractImageAndBackgroundToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             extractImageAndBackgroundToolStripMenuItem.Name = "extractImageAndBackgroundToolStripMenuItem";
@@ -1661,7 +1552,6 @@ namespace PS4PKGTool
             // 
             // globalExtractImagesAndIconToolStripMenuItem1
             // 
-            globalExtractImagesAndIconToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             globalExtractImagesAndIconToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             globalExtractImagesAndIconToolStripMenuItem1.Name = "globalExtractImagesAndIconToolStripMenuItem1";
             globalExtractImagesAndIconToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
@@ -1670,7 +1560,6 @@ namespace PS4PKGTool
             // 
             // globalExtractImageOnlyToolStripMenuItem1
             // 
-            globalExtractImageOnlyToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             globalExtractImageOnlyToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             globalExtractImageOnlyToolStripMenuItem1.Name = "globalExtractImageOnlyToolStripMenuItem1";
             globalExtractImageOnlyToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
@@ -1679,7 +1568,6 @@ namespace PS4PKGTool
             // 
             // globalExtractIconOnlyToolStripMenuItem1
             // 
-            globalExtractIconOnlyToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             globalExtractIconOnlyToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             globalExtractIconOnlyToolStripMenuItem1.Name = "globalExtractIconOnlyToolStripMenuItem1";
             globalExtractIconOnlyToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
@@ -1688,7 +1576,6 @@ namespace PS4PKGTool
             // 
             // renameToolStripMenuItem
             // 
-            renameToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { renameAllPkg1ToolStripMenuItem1, renameAllPkg2ToolStripMenuItem1, renameAllPkg3ToolStripMenuItem1, renameAllPkg4ToolStripMenuItem1, renameAllPkg5ToolStripMenuItem1, renameAllPkg6ToolStripMenuItem1, renameAllPkg7ToolStripMenuItem1, renameAllPkg8ToolStripMenuItem1, renameAllPkg9ToolStripMenuItem1, renameAllPkg10ToolStripMenuItem1, renameAllPkg11ToolStripMenuItem1, renameAllPkg12ToolStripMenuItem1 });
             renameToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameToolStripMenuItem.Name = "renameToolStripMenuItem";
@@ -1697,7 +1584,6 @@ namespace PS4PKGTool
             // 
             // renameAllPkg1ToolStripMenuItem1
             // 
-            renameAllPkg1ToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameAllPkg1ToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameAllPkg1ToolStripMenuItem1.Name = "renameAllPkg1ToolStripMenuItem1";
             renameAllPkg1ToolStripMenuItem1.Size = new System.Drawing.Size(314, 22);
@@ -1706,7 +1592,6 @@ namespace PS4PKGTool
             // 
             // renameAllPkg2ToolStripMenuItem1
             // 
-            renameAllPkg2ToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameAllPkg2ToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameAllPkg2ToolStripMenuItem1.Name = "renameAllPkg2ToolStripMenuItem1";
             renameAllPkg2ToolStripMenuItem1.Size = new System.Drawing.Size(314, 22);
@@ -1715,7 +1600,6 @@ namespace PS4PKGTool
             // 
             // renameAllPkg3ToolStripMenuItem1
             // 
-            renameAllPkg3ToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameAllPkg3ToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameAllPkg3ToolStripMenuItem1.Name = "renameAllPkg3ToolStripMenuItem1";
             renameAllPkg3ToolStripMenuItem1.Size = new System.Drawing.Size(314, 22);
@@ -1724,7 +1608,6 @@ namespace PS4PKGTool
             // 
             // renameAllPkg4ToolStripMenuItem1
             // 
-            renameAllPkg4ToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameAllPkg4ToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameAllPkg4ToolStripMenuItem1.Name = "renameAllPkg4ToolStripMenuItem1";
             renameAllPkg4ToolStripMenuItem1.Size = new System.Drawing.Size(314, 22);
@@ -1733,7 +1616,6 @@ namespace PS4PKGTool
             // 
             // renameAllPkg5ToolStripMenuItem1
             // 
-            renameAllPkg5ToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameAllPkg5ToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameAllPkg5ToolStripMenuItem1.Name = "renameAllPkg5ToolStripMenuItem1";
             renameAllPkg5ToolStripMenuItem1.Size = new System.Drawing.Size(314, 22);
@@ -1742,7 +1624,6 @@ namespace PS4PKGTool
             // 
             // renameAllPkg6ToolStripMenuItem1
             // 
-            renameAllPkg6ToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameAllPkg6ToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameAllPkg6ToolStripMenuItem1.Name = "renameAllPkg6ToolStripMenuItem1";
             renameAllPkg6ToolStripMenuItem1.Size = new System.Drawing.Size(314, 22);
@@ -1751,7 +1632,6 @@ namespace PS4PKGTool
             // 
             // renameAllPkg7ToolStripMenuItem1
             // 
-            renameAllPkg7ToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameAllPkg7ToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameAllPkg7ToolStripMenuItem1.Name = "renameAllPkg7ToolStripMenuItem1";
             renameAllPkg7ToolStripMenuItem1.Size = new System.Drawing.Size(314, 22);
@@ -1760,7 +1640,6 @@ namespace PS4PKGTool
             // 
             // renameAllPkg8ToolStripMenuItem1
             // 
-            renameAllPkg8ToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameAllPkg8ToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameAllPkg8ToolStripMenuItem1.Name = "renameAllPkg8ToolStripMenuItem1";
             renameAllPkg8ToolStripMenuItem1.Size = new System.Drawing.Size(314, 22);
@@ -1769,7 +1648,6 @@ namespace PS4PKGTool
             // 
             // renameAllPkg9ToolStripMenuItem1
             // 
-            renameAllPkg9ToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameAllPkg9ToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameAllPkg9ToolStripMenuItem1.Name = "renameAllPkg9ToolStripMenuItem1";
             renameAllPkg9ToolStripMenuItem1.Size = new System.Drawing.Size(314, 22);
@@ -1778,7 +1656,6 @@ namespace PS4PKGTool
             // 
             // renameAllPkg10ToolStripMenuItem1
             // 
-            renameAllPkg10ToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameAllPkg10ToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameAllPkg10ToolStripMenuItem1.Name = "renameAllPkg10ToolStripMenuItem1";
             renameAllPkg10ToolStripMenuItem1.Size = new System.Drawing.Size(314, 22);
@@ -1787,7 +1664,6 @@ namespace PS4PKGTool
             // 
             // renameAllPkg11ToolStripMenuItem1
             // 
-            renameAllPkg11ToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameAllPkg11ToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameAllPkg11ToolStripMenuItem1.Name = "renameAllPkg11ToolStripMenuItem1";
             renameAllPkg11ToolStripMenuItem1.Size = new System.Drawing.Size(314, 22);
@@ -1796,7 +1672,6 @@ namespace PS4PKGTool
             // 
             // renameAllPkg12ToolStripMenuItem1
             // 
-            renameAllPkg12ToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameAllPkg12ToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameAllPkg12ToolStripMenuItem1.Name = "renameAllPkg12ToolStripMenuItem1";
             renameAllPkg12ToolStripMenuItem1.Size = new System.Drawing.Size(314, 22);
@@ -1805,7 +1680,6 @@ namespace PS4PKGTool
             // 
             // seperateAndMovePKGByTypeIntoFolderToolStripMenuItem
             // 
-            seperateAndMovePKGByTypeIntoFolderToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             seperateAndMovePKGByTypeIntoFolderToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { movePkgTitleToolStripMenuItem1, movePkgCategoryToolStripMenuItem1, movePkgTypeToolStripMenuItem1, movePkgRegionToolStripMenuItem1, movePkgSingleFolderToolStripMenuItem1 });
             seperateAndMovePKGByTypeIntoFolderToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             seperateAndMovePKGByTypeIntoFolderToolStripMenuItem.Name = "seperateAndMovePKGByTypeIntoFolderToolStripMenuItem";
@@ -1814,7 +1688,6 @@ namespace PS4PKGTool
             // 
             // movePkgTitleToolStripMenuItem1
             // 
-            movePkgTitleToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             movePkgTitleToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             movePkgTitleToolStripMenuItem1.Name = "movePkgTitleToolStripMenuItem1";
             movePkgTitleToolStripMenuItem1.Size = new System.Drawing.Size(312, 22);
@@ -1823,7 +1696,6 @@ namespace PS4PKGTool
             // 
             // movePkgCategoryToolStripMenuItem1
             // 
-            movePkgCategoryToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             movePkgCategoryToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             movePkgCategoryToolStripMenuItem1.Name = "movePkgCategoryToolStripMenuItem1";
             movePkgCategoryToolStripMenuItem1.Size = new System.Drawing.Size(312, 22);
@@ -1832,7 +1704,6 @@ namespace PS4PKGTool
             // 
             // movePkgTypeToolStripMenuItem1
             // 
-            movePkgTypeToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             movePkgTypeToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             movePkgTypeToolStripMenuItem1.Name = "movePkgTypeToolStripMenuItem1";
             movePkgTypeToolStripMenuItem1.Size = new System.Drawing.Size(312, 22);
@@ -1841,7 +1712,6 @@ namespace PS4PKGTool
             // 
             // movePkgRegionToolStripMenuItem1
             // 
-            movePkgRegionToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             movePkgRegionToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             movePkgRegionToolStripMenuItem1.Name = "movePkgRegionToolStripMenuItem1";
             movePkgRegionToolStripMenuItem1.Size = new System.Drawing.Size(312, 22);
@@ -1850,7 +1720,6 @@ namespace PS4PKGTool
             // 
             // movePkgSingleFolderToolStripMenuItem1
             // 
-            movePkgSingleFolderToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             movePkgSingleFolderToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             movePkgSingleFolderToolStripMenuItem1.Name = "movePkgSingleFolderToolStripMenuItem1";
             movePkgSingleFolderToolStripMenuItem1.Size = new System.Drawing.Size(312, 22);
@@ -1875,7 +1744,6 @@ namespace PS4PKGTool
             // 
             // globalCopyStripMenuItem
             // 
-            globalCopyStripMenuItem.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             globalCopyStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { copyTitleIdtoolStripMenuItem1, copyContentIdtoolStripMenuItem1, copyTitleToolStripMenuItem1, copyFilenameToolStripMenuItem1 });
             globalCopyStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             globalCopyStripMenuItem.Name = "globalCopyStripMenuItem";
@@ -1884,7 +1752,6 @@ namespace PS4PKGTool
             // 
             // copyTitleIdtoolStripMenuItem1
             // 
-            copyTitleIdtoolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             copyTitleIdtoolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             copyTitleIdtoolStripMenuItem1.Name = "copyTitleIdtoolStripMenuItem1";
             copyTitleIdtoolStripMenuItem1.Size = new System.Drawing.Size(145, 22);
@@ -1893,7 +1760,6 @@ namespace PS4PKGTool
             // 
             // copyContentIdtoolStripMenuItem1
             // 
-            copyContentIdtoolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             copyContentIdtoolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             copyContentIdtoolStripMenuItem1.Name = "copyContentIdtoolStripMenuItem1";
             copyContentIdtoolStripMenuItem1.Size = new System.Drawing.Size(145, 22);
@@ -1902,7 +1768,6 @@ namespace PS4PKGTool
             // 
             // copyTitleToolStripMenuItem1
             // 
-            copyTitleToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             copyTitleToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             copyTitleToolStripMenuItem1.Name = "copyTitleToolStripMenuItem1";
             copyTitleToolStripMenuItem1.Size = new System.Drawing.Size(145, 22);
@@ -1911,7 +1776,6 @@ namespace PS4PKGTool
             // 
             // copyFilenameToolStripMenuItem1
             // 
-            copyFilenameToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             copyFilenameToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             copyFilenameToolStripMenuItem1.Name = "copyFilenameToolStripMenuItem1";
             copyFilenameToolStripMenuItem1.Size = new System.Drawing.Size(145, 22);
@@ -1920,7 +1784,6 @@ namespace PS4PKGTool
             // 
             // toolStripMenuItem1
             // 
-            toolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { setBackportedtoolStripMenuItem1, toolStripMenuItem4, toolStripSeparator10, removeBackportedtoolStripMenuItem1 });
             toolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             toolStripMenuItem1.Name = "toolStripMenuItem1";
@@ -1929,7 +1792,6 @@ namespace PS4PKGTool
             // 
             // setBackportedtoolStripMenuItem1
             // 
-            setBackportedtoolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             setBackportedtoolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             setBackportedtoolStripMenuItem1.Name = "setBackportedtoolStripMenuItem1";
             setBackportedtoolStripMenuItem1.Size = new System.Drawing.Size(208, 22);
@@ -1938,7 +1800,6 @@ namespace PS4PKGTool
             // 
             // toolStripMenuItem4
             // 
-            toolStripMenuItem4.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripMenuItem4.DropDownItems.AddRange(new ToolStripItem[] { backportRemarkTextboxtoolStripTextBox1, setRemarktoolStripMenuItem1 });
             toolStripMenuItem4.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             toolStripMenuItem4.Name = "toolStripMenuItem4";
@@ -1952,7 +1813,6 @@ namespace PS4PKGTool
             // 
             // setRemarktoolStripMenuItem1
             // 
-            setRemarktoolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             setRemarktoolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             setRemarktoolStripMenuItem1.Name = "setRemarktoolStripMenuItem1";
             setRemarktoolStripMenuItem1.Size = new System.Drawing.Size(240, 22);
@@ -1961,7 +1821,6 @@ namespace PS4PKGTool
             // 
             // toolStripSeparator10
             // 
-            toolStripSeparator10.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripSeparator10.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             toolStripSeparator10.Margin = new Padding(0, 0, 0, 1);
             toolStripSeparator10.Name = "toolStripSeparator10";
@@ -1969,7 +1828,6 @@ namespace PS4PKGTool
             // 
             // removeBackportedtoolStripMenuItem1
             // 
-            removeBackportedtoolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             removeBackportedtoolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             removeBackportedtoolStripMenuItem1.Name = "removeBackportedtoolStripMenuItem1";
             removeBackportedtoolStripMenuItem1.Size = new System.Drawing.Size(208, 22);
@@ -1978,7 +1836,6 @@ namespace PS4PKGTool
             // 
             // deletePKGtoolStripMenuItem1
             // 
-            deletePKGtoolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             deletePKGtoolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             deletePKGtoolStripMenuItem1.Name = "deletePKGtoolStripMenuItem1";
             deletePKGtoolStripMenuItem1.Size = new System.Drawing.Size(254, 22);
@@ -1987,7 +1844,6 @@ namespace PS4PKGTool
             // 
             // selectedExportPKGListToExcelToolStripMenuItem1
             // 
-            selectedExportPKGListToExcelToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             selectedExportPKGListToExcelToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             selectedExportPKGListToExcelToolStripMenuItem1.ImageScaling = ToolStripItemImageScaling.None;
             selectedExportPKGListToExcelToolStripMenuItem1.Name = "selectedExportPKGListToExcelToolStripMenuItem1";
@@ -1998,7 +1854,6 @@ namespace PS4PKGTool
             // 
             // toolStripMenuItem28
             // 
-            toolStripMenuItem28.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripMenuItem28.DropDownItems.AddRange(new ToolStripItem[] { selectedExtractImagesAndIconToolStripMenuItem1, selectedExtractImageOnlyToolStripMenuItem1, selectedExtractIconOnlyToolStripMenuItem1 });
             toolStripMenuItem28.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             toolStripMenuItem28.ImageScaling = ToolStripItemImageScaling.None;
@@ -2009,7 +1864,6 @@ namespace PS4PKGTool
             // 
             // selectedExtractImagesAndIconToolStripMenuItem1
             // 
-            selectedExtractImagesAndIconToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             selectedExtractImagesAndIconToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             selectedExtractImagesAndIconToolStripMenuItem1.Name = "selectedExtractImagesAndIconToolStripMenuItem1";
             selectedExtractImagesAndIconToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
@@ -2018,7 +1872,6 @@ namespace PS4PKGTool
             // 
             // selectedExtractImageOnlyToolStripMenuItem1
             // 
-            selectedExtractImageOnlyToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             selectedExtractImageOnlyToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             selectedExtractImageOnlyToolStripMenuItem1.Name = "selectedExtractImageOnlyToolStripMenuItem1";
             selectedExtractImageOnlyToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
@@ -2027,7 +1880,6 @@ namespace PS4PKGTool
             // 
             // selectedExtractIconOnlyToolStripMenuItem1
             // 
-            selectedExtractIconOnlyToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             selectedExtractIconOnlyToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             selectedExtractIconOnlyToolStripMenuItem1.Name = "selectedExtractIconOnlyToolStripMenuItem1";
             selectedExtractIconOnlyToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
@@ -2036,7 +1888,6 @@ namespace PS4PKGTool
             // 
             // renameCurrentPKGStripMenuItem
             // 
-            renameCurrentPKGStripMenuItem.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameCurrentPKGStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { renameSelectedPkg1ToolStripMenuItem1, renameSelectedPkg2ToolStripMenuItem1, renameSelectedPkg3ToolStripMenuItem1, renameSelectedPkg4ToolStripMenuItem1, renameSelectedPkg5ToolStripMenuItem1, renameSelectedPkg6ToolStripMenuItem1, renameSelectedPkg7ToolStripMenuItem1, renameSelectedPkg8ToolStripMenuItem1, renameSelectedPkg9ToolStripMenuItem1, renameSelectedPkg10ToolStripMenuItem1, renameSelectedPkg11ToolStripMenuItem1, renameSelectedPkg12ToolStripMenuItem1 });
             renameCurrentPKGStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameCurrentPKGStripMenuItem.Name = "renameCurrentPKGStripMenuItem";
@@ -2045,7 +1896,6 @@ namespace PS4PKGTool
             // 
             // renameSelectedPkg1ToolStripMenuItem1
             // 
-            renameSelectedPkg1ToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameSelectedPkg1ToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameSelectedPkg1ToolStripMenuItem1.Name = "renameSelectedPkg1ToolStripMenuItem1";
             renameSelectedPkg1ToolStripMenuItem1.Size = new System.Drawing.Size(314, 22);
@@ -2054,7 +1904,6 @@ namespace PS4PKGTool
             // 
             // renameSelectedPkg2ToolStripMenuItem1
             // 
-            renameSelectedPkg2ToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameSelectedPkg2ToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameSelectedPkg2ToolStripMenuItem1.Name = "renameSelectedPkg2ToolStripMenuItem1";
             renameSelectedPkg2ToolStripMenuItem1.Size = new System.Drawing.Size(314, 22);
@@ -2063,7 +1912,6 @@ namespace PS4PKGTool
             // 
             // renameSelectedPkg3ToolStripMenuItem1
             // 
-            renameSelectedPkg3ToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameSelectedPkg3ToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameSelectedPkg3ToolStripMenuItem1.Name = "renameSelectedPkg3ToolStripMenuItem1";
             renameSelectedPkg3ToolStripMenuItem1.Size = new System.Drawing.Size(314, 22);
@@ -2072,7 +1920,6 @@ namespace PS4PKGTool
             // 
             // renameSelectedPkg4ToolStripMenuItem1
             // 
-            renameSelectedPkg4ToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameSelectedPkg4ToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameSelectedPkg4ToolStripMenuItem1.Name = "renameSelectedPkg4ToolStripMenuItem1";
             renameSelectedPkg4ToolStripMenuItem1.Size = new System.Drawing.Size(314, 22);
@@ -2081,7 +1928,6 @@ namespace PS4PKGTool
             // 
             // renameSelectedPkg5ToolStripMenuItem1
             // 
-            renameSelectedPkg5ToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameSelectedPkg5ToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameSelectedPkg5ToolStripMenuItem1.Name = "renameSelectedPkg5ToolStripMenuItem1";
             renameSelectedPkg5ToolStripMenuItem1.Size = new System.Drawing.Size(314, 22);
@@ -2090,7 +1936,6 @@ namespace PS4PKGTool
             // 
             // renameSelectedPkg6ToolStripMenuItem1
             // 
-            renameSelectedPkg6ToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameSelectedPkg6ToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameSelectedPkg6ToolStripMenuItem1.Name = "renameSelectedPkg6ToolStripMenuItem1";
             renameSelectedPkg6ToolStripMenuItem1.Size = new System.Drawing.Size(314, 22);
@@ -2099,7 +1944,6 @@ namespace PS4PKGTool
             // 
             // renameSelectedPkg7ToolStripMenuItem1
             // 
-            renameSelectedPkg7ToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameSelectedPkg7ToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameSelectedPkg7ToolStripMenuItem1.Name = "renameSelectedPkg7ToolStripMenuItem1";
             renameSelectedPkg7ToolStripMenuItem1.Size = new System.Drawing.Size(314, 22);
@@ -2108,7 +1952,6 @@ namespace PS4PKGTool
             // 
             // renameSelectedPkg8ToolStripMenuItem1
             // 
-            renameSelectedPkg8ToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameSelectedPkg8ToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameSelectedPkg8ToolStripMenuItem1.Name = "renameSelectedPkg8ToolStripMenuItem1";
             renameSelectedPkg8ToolStripMenuItem1.Size = new System.Drawing.Size(314, 22);
@@ -2117,7 +1960,6 @@ namespace PS4PKGTool
             // 
             // renameSelectedPkg9ToolStripMenuItem1
             // 
-            renameSelectedPkg9ToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameSelectedPkg9ToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameSelectedPkg9ToolStripMenuItem1.Name = "renameSelectedPkg9ToolStripMenuItem1";
             renameSelectedPkg9ToolStripMenuItem1.Size = new System.Drawing.Size(314, 22);
@@ -2126,7 +1968,6 @@ namespace PS4PKGTool
             // 
             // renameSelectedPkg10ToolStripMenuItem1
             // 
-            renameSelectedPkg10ToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameSelectedPkg10ToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameSelectedPkg10ToolStripMenuItem1.Name = "renameSelectedPkg10ToolStripMenuItem1";
             renameSelectedPkg10ToolStripMenuItem1.Size = new System.Drawing.Size(314, 22);
@@ -2135,7 +1976,6 @@ namespace PS4PKGTool
             // 
             // renameSelectedPkg11ToolStripMenuItem1
             // 
-            renameSelectedPkg11ToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameSelectedPkg11ToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameSelectedPkg11ToolStripMenuItem1.Name = "renameSelectedPkg11ToolStripMenuItem1";
             renameSelectedPkg11ToolStripMenuItem1.Size = new System.Drawing.Size(314, 22);
@@ -2144,7 +1984,6 @@ namespace PS4PKGTool
             // 
             // renameSelectedPkg12ToolStripMenuItem1
             // 
-            renameSelectedPkg12ToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             renameSelectedPkg12ToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             renameSelectedPkg12ToolStripMenuItem1.Name = "renameSelectedPkg12ToolStripMenuItem1";
             renameSelectedPkg12ToolStripMenuItem1.Size = new System.Drawing.Size(314, 22);
@@ -2153,7 +1992,6 @@ namespace PS4PKGTool
             // 
             // viewPkgChangeInfotoolStripMenuItem1
             // 
-            viewPkgChangeInfotoolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             viewPkgChangeInfotoolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             viewPkgChangeInfotoolStripMenuItem1.Name = "viewPkgChangeInfotoolStripMenuItem1";
             viewPkgChangeInfotoolStripMenuItem1.Size = new System.Drawing.Size(254, 22);
@@ -2162,7 +2000,6 @@ namespace PS4PKGTool
             // 
             // viewPkgExplorerStripMenuItem1
             // 
-            viewPkgExplorerStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             viewPkgExplorerStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             viewPkgExplorerStripMenuItem1.Name = "viewPkgExplorerStripMenuItem1";
             viewPkgExplorerStripMenuItem1.Size = new System.Drawing.Size(254, 22);
@@ -2171,7 +2008,6 @@ namespace PS4PKGTool
             // 
             // toolStripSeparator8
             // 
-            toolStripSeparator8.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripSeparator8.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             toolStripSeparator8.Margin = new Padding(0, 0, 0, 1);
             toolStripSeparator8.Name = "toolStripSeparator8";
@@ -2179,7 +2015,6 @@ namespace PS4PKGTool
             // 
             // downloadOfficialUpdateToolStripMenuItem1
             // 
-            downloadOfficialUpdateToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             downloadOfficialUpdateToolStripMenuItem1.Enabled = false;
             downloadOfficialUpdateToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             downloadOfficialUpdateToolStripMenuItem1.Name = "downloadOfficialUpdateToolStripMenuItem1";
@@ -2189,7 +2024,6 @@ namespace PS4PKGTool
             // 
             // toolStripMenuItem16
             // 
-            toolStripMenuItem16.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripMenuItem16.Enabled = false;
             toolStripMenuItem16.Font = new System.Drawing.Font("Segoe UI", 9F);
             toolStripMenuItem16.ForeColor = System.Drawing.Color.FromArgb(153, 153, 153);
@@ -2199,7 +2033,6 @@ namespace PS4PKGTool
             // 
             // RpiCheckPkgInstalledtoolStripMenuItem1
             // 
-            RpiCheckPkgInstalledtoolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             RpiCheckPkgInstalledtoolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             RpiCheckPkgInstalledtoolStripMenuItem1.Name = "RpiCheckPkgInstalledtoolStripMenuItem1";
             RpiCheckPkgInstalledtoolStripMenuItem1.Size = new System.Drawing.Size(254, 22);
@@ -2208,7 +2041,6 @@ namespace PS4PKGTool
             // 
             // RpiSendPkgtoolStripMenuItem1
             // 
-            RpiSendPkgtoolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             RpiSendPkgtoolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             RpiSendPkgtoolStripMenuItem1.Name = "RpiSendPkgtoolStripMenuItem1";
             RpiSendPkgtoolStripMenuItem1.Size = new System.Drawing.Size(254, 22);
@@ -2217,7 +2049,6 @@ namespace PS4PKGTool
             // 
             // uninstallPKGFromPS4ToolStripMenuItem
             // 
-            uninstallPKGFromPS4ToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             uninstallPKGFromPS4ToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { RpiUninstallBasePKGToolStripMenuItem1, RpiUninstallPatchPKGToolStripMenuItem1, RpiUninstallDlcPKGToolStripMenuItem1, RpiUninstallThemePKGToolStripMenuItem1 });
             uninstallPKGFromPS4ToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             uninstallPKGFromPS4ToolStripMenuItem.Name = "uninstallPKGFromPS4ToolStripMenuItem";
@@ -2226,7 +2057,6 @@ namespace PS4PKGTool
             // 
             // RpiUninstallBasePKGToolStripMenuItem1
             // 
-            RpiUninstallBasePKGToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             RpiUninstallBasePKGToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             RpiUninstallBasePKGToolStripMenuItem1.Name = "RpiUninstallBasePKGToolStripMenuItem1";
             RpiUninstallBasePKGToolStripMenuItem1.Size = new System.Drawing.Size(229, 22);
@@ -2235,7 +2065,6 @@ namespace PS4PKGTool
             // 
             // RpiUninstallPatchPKGToolStripMenuItem1
             // 
-            RpiUninstallPatchPKGToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             RpiUninstallPatchPKGToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             RpiUninstallPatchPKGToolStripMenuItem1.Name = "RpiUninstallPatchPKGToolStripMenuItem1";
             RpiUninstallPatchPKGToolStripMenuItem1.Size = new System.Drawing.Size(229, 22);
@@ -2244,7 +2073,6 @@ namespace PS4PKGTool
             // 
             // RpiUninstallDlcPKGToolStripMenuItem1
             // 
-            RpiUninstallDlcPKGToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             RpiUninstallDlcPKGToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             RpiUninstallDlcPKGToolStripMenuItem1.Name = "RpiUninstallDlcPKGToolStripMenuItem1";
             RpiUninstallDlcPKGToolStripMenuItem1.Size = new System.Drawing.Size(229, 22);
@@ -2253,7 +2081,6 @@ namespace PS4PKGTool
             // 
             // RpiUninstallThemePKGToolStripMenuItem1
             // 
-            RpiUninstallThemePKGToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             RpiUninstallThemePKGToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             RpiUninstallThemePKGToolStripMenuItem1.Name = "RpiUninstallThemePKGToolStripMenuItem1";
             RpiUninstallThemePKGToolStripMenuItem1.Size = new System.Drawing.Size(229, 22);
@@ -2273,26 +2100,22 @@ namespace PS4PKGTool
             // 
             // toolStripStatusLabel1
             // 
-            toolStripStatusLabel1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             toolStripStatusLabel1.Size = new System.Drawing.Size(13, 16);
             toolStripStatusLabel1.Text = "  ";
             // 
             // toolStripStatusLabel3
             // 
-            toolStripStatusLabel3.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripStatusLabel3.Name = "toolStripStatusLabel3";
             toolStripStatusLabel3.Size = new System.Drawing.Size(0, 16);
             // 
             // toolStripStatusLabel5
             // 
-            toolStripStatusLabel5.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripStatusLabel5.Name = "toolStripStatusLabel5";
             toolStripStatusLabel5.Size = new System.Drawing.Size(0, 16);
             // 
             // toolStripSeparator13
             // 
-            toolStripSeparator13.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripSeparator13.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             toolStripSeparator13.Margin = new Padding(0, 0, 2, 0);
             toolStripSeparator13.Name = "toolStripSeparator13";
@@ -2300,7 +2123,6 @@ namespace PS4PKGTool
             // 
             // toolStripProgressBar1
             // 
-            toolStripProgressBar1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripProgressBar1.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             toolStripProgressBar1.Marquee = false;
             toolStripProgressBar1.Name = "toolStripProgressBar1";
@@ -2308,7 +2130,6 @@ namespace PS4PKGTool
             // 
             // toolStripSeparator14
             // 
-            toolStripSeparator14.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripSeparator14.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             toolStripSeparator14.Margin = new Padding(0, 0, 2, 0);
             toolStripSeparator14.Name = "toolStripSeparator14";
@@ -2316,7 +2137,6 @@ namespace PS4PKGTool
             // 
             // toolStripStatusLabel2
             // 
-            toolStripStatusLabel2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripStatusLabel2.DisplayStyle = ToolStripItemDisplayStyle.Text;
             toolStripStatusLabel2.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             toolStripStatusLabel2.Name = "toolStripStatusLabel2";
@@ -2327,14 +2147,12 @@ namespace PS4PKGTool
             // 
             // labelDisplayTotalPKG
             // 
-            labelDisplayTotalPKG.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             labelDisplayTotalPKG.Name = "labelDisplayTotalPKG";
             labelDisplayTotalPKG.Size = new System.Drawing.Size(16, 16);
             labelDisplayTotalPKG.Text = "...";
             // 
             // toolStripStatusLabel4
             // 
-            toolStripStatusLabel4.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripStatusLabel4.Name = "toolStripStatusLabel4";
             toolStripStatusLabel4.Size = new System.Drawing.Size(13, 16);
             toolStripStatusLabel4.Text = "  ";
@@ -2348,7 +2166,6 @@ namespace PS4PKGTool
             // 
             // ExtractTrophyImageToolStripMenuItem
             // 
-            ExtractTrophyImageToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             ExtractTrophyImageToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             ExtractTrophyImageToolStripMenuItem.Name = "ExtractTrophyImageToolStripMenuItem";
             ExtractTrophyImageToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
@@ -2364,7 +2181,6 @@ namespace PS4PKGTool
             // 
             // ExtractAllEntryToolStripMenuItem
             // 
-            ExtractAllEntryToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             ExtractAllEntryToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             ExtractAllEntryToolStripMenuItem.Name = "ExtractAllEntryToolStripMenuItem";
             ExtractAllEntryToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
@@ -2373,7 +2189,6 @@ namespace PS4PKGTool
             // 
             // ExtractDecryptedEntryToolStripMenuItem
             // 
-            ExtractDecryptedEntryToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             ExtractDecryptedEntryToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             ExtractDecryptedEntryToolStripMenuItem.Name = "ExtractDecryptedEntryToolStripMenuItem";
             ExtractDecryptedEntryToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
@@ -2395,7 +2210,6 @@ namespace PS4PKGTool
             // 
             // copyURLToolStripMenuItem
             // 
-            copyURLToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             copyURLToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             copyURLToolStripMenuItem.Name = "copyURLToolStripMenuItem";
             copyURLToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
@@ -2403,7 +2217,6 @@ namespace PS4PKGTool
             // 
             // downloadSelectedPKGUpdateToolStripMenuItem
             // 
-            downloadSelectedPKGUpdateToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             downloadSelectedPKGUpdateToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             downloadSelectedPKGUpdateToolStripMenuItem.Name = "downloadSelectedPKGUpdateToolStripMenuItem";
             downloadSelectedPKGUpdateToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
@@ -2418,7 +2231,6 @@ namespace PS4PKGTool
             // 
             // saveImageToolStripMenuItem
             // 
-            saveImageToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             saveImageToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             saveImageToolStripMenuItem.Name = "saveImageToolStripMenuItem";
             saveImageToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
@@ -2427,7 +2239,6 @@ namespace PS4PKGTool
             // 
             // SetImageAsDesktopBackgroundToolStripMenuItem
             // 
-            SetImageAsDesktopBackgroundToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             SetImageAsDesktopBackgroundToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             SetImageAsDesktopBackgroundToolStripMenuItem.Name = "SetImageAsDesktopBackgroundToolStripMenuItem";
             SetImageAsDesktopBackgroundToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
@@ -2443,7 +2254,6 @@ namespace PS4PKGTool
             // 
             // ctxExpandNode
             // 
-            ctxExpandNode.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             ctxExpandNode.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             ctxExpandNode.Name = "ctxExpandNode";
             ctxExpandNode.Size = new System.Drawing.Size(182, 22);
@@ -2452,7 +2262,6 @@ namespace PS4PKGTool
             // 
             // ctxCollapseNode
             // 
-            ctxCollapseNode.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             ctxCollapseNode.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             ctxCollapseNode.Name = "ctxCollapseNode";
             ctxCollapseNode.Size = new System.Drawing.Size(182, 22);
@@ -2461,7 +2270,6 @@ namespace PS4PKGTool
             // 
             // ctxTreeSeparator
             // 
-            ctxTreeSeparator.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             ctxTreeSeparator.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             ctxTreeSeparator.Margin = new Padding(0, 0, 0, 1);
             ctxTreeSeparator.Name = "ctxTreeSeparator";
@@ -2469,7 +2277,6 @@ namespace PS4PKGTool
             // 
             // expandAllToolStripMenuItem
             // 
-            expandAllToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             expandAllToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             expandAllToolStripMenuItem.Name = "expandAllToolStripMenuItem";
             expandAllToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
@@ -2478,7 +2285,6 @@ namespace PS4PKGTool
             // 
             // collapseAllNodeToolStripMenuItem
             // 
-            collapseAllNodeToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             collapseAllNodeToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             collapseAllNodeToolStripMenuItem.Name = "collapseAllNodeToolStripMenuItem";
             collapseAllNodeToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
@@ -2487,7 +2293,6 @@ namespace PS4PKGTool
             // 
             // extractNodeToolStripMenuItem
             // 
-            extractNodeToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             extractNodeToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             extractNodeToolStripMenuItem.Name = "extractNodeToolStripMenuItem";
             extractNodeToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
@@ -2532,7 +2337,6 @@ namespace PS4PKGTool
             // 
             // toolStripMenuItem32
             // 
-            toolStripMenuItem32.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             toolStripMenuItem32.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             toolStripMenuItem32.Name = "toolStripMenuItem32";
             toolStripMenuItem32.Size = new System.Drawing.Size(273, 22);
@@ -2541,7 +2345,6 @@ namespace PS4PKGTool
             // 
             // ctxExtractFolder
             // 
-            ctxExtractFolder.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             ctxExtractFolder.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             ctxExtractFolder.Name = "ctxExtractFolder";
             ctxExtractFolder.Size = new System.Drawing.Size(273, 22);
@@ -2550,7 +2353,6 @@ namespace PS4PKGTool
             // 
             // ctxListSeparator
             // 
-            ctxListSeparator.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             ctxListSeparator.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             ctxListSeparator.Margin = new Padding(0, 0, 0, 1);
             ctxListSeparator.Name = "ctxListSeparator";
@@ -2558,7 +2360,6 @@ namespace PS4PKGTool
             // 
             // ctxCopyPath
             // 
-            ctxCopyPath.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             ctxCopyPath.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             ctxCopyPath.Name = "ctxCopyPath";
             ctxCopyPath.Size = new System.Drawing.Size(273, 22);
@@ -2567,7 +2368,6 @@ namespace PS4PKGTool
             // 
             // ctxCopyName
             // 
-            ctxCopyName.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             ctxCopyName.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
             ctxCopyName.Name = "ctxCopyName";
             ctxCopyName.Size = new System.Drawing.Size(273, 22);
@@ -2597,7 +2397,6 @@ namespace PS4PKGTool
             // 
             // tabPage1
             // 
-            tabPage1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             tabPage1.Controls.Add(darkSectionPanel10);
             tabPage1.Controls.Add(grpFilter);
             tabPage1.Controls.Add(subTabControl);
@@ -2849,7 +2648,6 @@ namespace PS4PKGTool
             // 
             // tabPageTable
             // 
-            tabPageTable.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             tabPageTable.Controls.Add(PKGGridView);
             tabPageTable.ForeColor = System.Drawing.Color.Gainsboro;
             tabPageTable.Location = new System.Drawing.Point(4, 32);
@@ -2887,7 +2685,6 @@ namespace PS4PKGTool
             // 
             // tabPageGroup
             // 
-            tabPageGroup.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             tabPageGroup.Controls.Add(groupedListView);
             tabPageGroup.Controls.Add(btnGroupExpand);
             tabPageGroup.Controls.Add(cbGroupBy);
@@ -3051,7 +2848,6 @@ namespace PS4PKGTool
             // 
             // tabPage2
             // 
-            tabPage2.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             tabPage2.Controls.Add(TrophyGridView);
             tabPage2.ForeColor = System.Drawing.Color.Gainsboro;
             tabPage2.Location = new System.Drawing.Point(4, 32);
@@ -3082,7 +2878,6 @@ namespace PS4PKGTool
             // 
             // tabPage3
             // 
-            tabPage3.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             tabPage3.Controls.Add(flatTabControlBgi);
             tabPage3.ForeColor = System.Drawing.Color.Gainsboro;
             tabPage3.Location = new System.Drawing.Point(4, 32);
@@ -3111,7 +2906,6 @@ namespace PS4PKGTool
             // 
             // tabPagePic0
             // 
-            tabPagePic0.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             tabPagePic0.Controls.Add(pbPIC0);
             tabPagePic0.Location = new System.Drawing.Point(4, 32);
             tabPagePic0.Margin = new Padding(3, 2, 3, 2);
@@ -3135,7 +2929,6 @@ namespace PS4PKGTool
             // 
             // tabPagePic1
             // 
-            tabPagePic1.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             tabPagePic1.Controls.Add(pbPIC1);
             tabPagePic1.Location = new System.Drawing.Point(4, 32);
             tabPagePic1.Margin = new Padding(3, 2, 3, 2);
@@ -3158,7 +2951,6 @@ namespace PS4PKGTool
             // 
             // tabPage4
             // 
-            tabPage4.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             tabPage4.Controls.Add(panel7);
             tabPage4.ForeColor = System.Drawing.Color.Gainsboro;
             tabPage4.Location = new System.Drawing.Point(4, 32);
@@ -3266,7 +3058,6 @@ namespace PS4PKGTool
             // 
             // tabPage7
             // 
-            tabPage7.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             tabPage7.Controls.Add(panel6);
             tabPage7.ForeColor = System.Drawing.Color.Gainsboro;
             tabPage7.Location = new System.Drawing.Point(4, 32);
@@ -3592,7 +3383,6 @@ namespace PS4PKGTool
             // 
             // _tabLog
             // 
-            _tabLog.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             _tabLog.Controls.Add(_tbLogBox);
             _tabLog.Location = new System.Drawing.Point(4, 32);
             _tabLog.Name = "_tabLog";
@@ -3614,7 +3404,6 @@ namespace PS4PKGTool
             // 
             // _tasksTab
             // 
-            _tasksTab.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             _tasksTab.Controls.Add(_tasksGrid);
             _tasksTab.Controls.Add(taskDetailsLayout);
             _tasksTab.Controls.Add(tasksToolbar);
@@ -3886,7 +3675,6 @@ namespace PS4PKGTool
             // 
             // tabPage5
             // 
-            tabPage5.BackColor = System.Drawing.Color.FromArgb(60, 63, 65);
             tabPage5.Controls.Add(darkSectionPanel11);
             tabPage5.Controls.Add(lblUpdateInfo);
             tabPage5.Controls.Add(lblVersion);
