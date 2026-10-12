@@ -73,8 +73,6 @@ Suggestions are welcome. Report any bugs [here](https://github.com/pearlxcore/PS
 - Managed shadPS4 core and launcher builds, game library installation, save backups, and launch diagnostics.
 - Install base PKGs and merge updates into the existing shadPS4 game installation.
   
-https://github.com/user-attachments/assets/cc316cba-cf66-4e28-a04c-6f17f39ff5e5
-
 **File Explorer Integration**
 
 - File Explorer `.pkg` integration for rename, metadata copy, validation, extraction, and shadPS4 installation.
@@ -98,6 +96,8 @@ PS4 PKG Tool can manage shadPS4 builds, install owned PS4 PKGs into a shadPS4 ga
 6. Open `Tools` > `shadPS4 Manager` > `Games` to launch an installed game. The `Saves` tab can create and restore save backups while shadPS4 is closed.
 
 On a first launch after shadPS4 changes its save or trophy locations, shadPS4 may show a **Save Migration** prompt. Choose `Copy` to use the new location while retaining the old files as a backup. This prompt belongs to shadPS4, not PS4 PKG Tool.
+
+https://github.com/user-attachments/assets/cc316cba-cf66-4e28-a04c-6f17f39ff5e5
 
 # PKG Viewer
 
