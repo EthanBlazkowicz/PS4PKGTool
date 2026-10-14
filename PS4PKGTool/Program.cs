@@ -145,17 +145,19 @@ namespace PS4PKGTool
 
         private static void EnsureSettingsFileExists()
         {
-            // Portable runtime-data root next to the exe: settings, feedback
-            // history, report snapshots and every regenerable cache. The
-            // AppData folder no longer ships with the build - the orbis-pub
-            // bundle was removed - so it must be created on demand.
+            // Caches stay next to the exe (portable, regenerable); durable data
+            // lives in the fixed per-user folder so a new build in a new folder
+            // reuses settings, the library manifest, the task queue and the
+            // managed shadPS4 builds.
             if (!Directory.Exists(Helper.AppDataDirectory))
                 Directory.CreateDirectory(Helper.AppDataDirectory);
+            if (!Directory.Exists(Helper.UserDataDirectory))
+                Directory.CreateDirectory(Helper.UserDataDirectory);
 
-            // One-time reverse migration: an earlier layout kept settings and
-            // feedback durable in %APPDATA%\PS4PKGTool. Portability won -
-            // surviving data moves back into the portable AppData folder so
-            // the layout change loses nothing.
+            // First-run migrations into the fixed per-user folder. The previous
+            // exe-adjacent layout wins over the older %APPDATA% layout when both
+            // are present (each item is only moved when the target is missing).
+            MigrateDurableDataToUserProfile();
             MigrateLegacyUserSettingsBack();
 
             if (!File.Exists(SettingFilePath) || new FileInfo(SettingFilePath).Length == 0)
@@ -165,10 +167,31 @@ namespace PS4PKGTool
         }
 
         /// <summary>
+        /// Moves durable data from the previous exe-adjacent AppData layout into
+        /// the fixed per-user folder. Best effort per item, and only when the
+        /// destination is still missing, so nothing is overwritten or lost.
+        /// </summary>
+        private static void MigrateDurableDataToUserProfile()
+        {
+            string source = Helper.AppDataDirectory;
+            string target = Helper.UserDataDirectory;
+            // The log first: every later migration logs, which would create the
+            // destination log and make this move skip.
+            MigrateFile(source, target, "PS4PKGToolLog.txt");
+            MigrateFile(source, target, "Settings.conf");
+            MigrateFile(source, target, "manifest.json");
+            MigrateFile(source, target, "task-queue.json");
+            MigrateFile(source, target, "task-queue.json.bak");
+            MigrateFile(source, target, "game-feedback.jsonl");
+            MigrateDirectory(source, target, "Shadps4Reports");
+            MigrateDirectory(source, target, "shadPS4");
+        }
+
+        /// <summary>
         /// Moves settings, feedback history and report snapshots from the
-        /// historical %APPDATA%\PS4PKGTool folder back into the portable
-        /// exe-adjacent AppData folder. Best effort per item: failures are
-        /// logged and skipped (missing settings fall back to defaults).
+        /// historical %APPDATA%\PS4PKGTool folder into the fixed per-user
+        /// folder. Best effort per item: failures are logged and skipped
+        /// (missing settings fall back to defaults).
         /// </summary>
         private static void MigrateLegacyUserSettingsBack()
         {
@@ -177,9 +200,9 @@ namespace PS4PKGTool
                 "PS4PKGTool");
             if (!Directory.Exists(legacyRoot)) return;
 
-            MigrateFileBack(legacyRoot, "Settings.conf");
-            MigrateFileBack(legacyRoot, "game-feedback.jsonl");
-            MigrateDirectoryBack(legacyRoot, "Shadps4Reports");
+            MigrateFile(legacyRoot, Helper.UserDataDirectory, "Settings.conf");
+            MigrateFile(legacyRoot, Helper.UserDataDirectory, "game-feedback.jsonl");
+            MigrateDirectory(legacyRoot, Helper.UserDataDirectory, "Shadps4Reports");
 
             // The legacy folder is PS4PKGTool's alone - remove it when empty.
             try
@@ -190,15 +213,15 @@ namespace PS4PKGTool
             catch { /* best-effort: a non-empty or locked legacy folder is left behind */ }
         }
 
-        private static void MigrateFileBack(string legacyRoot, string fileName)
+        private static void MigrateFile(string sourceRoot, string targetRoot, string fileName)
         {
-            string source = Path.Combine(legacyRoot, fileName);
-            string target = Path.Combine(Helper.AppDataDirectory, fileName);
+            string source = Path.Combine(sourceRoot, fileName);
+            string target = Path.Combine(targetRoot, fileName);
             try
             {
                 if (File.Exists(target) || !File.Exists(source) || new FileInfo(source).Length == 0)
                     return;
-                File.Move(source, target);
+                File.Move(source, target); // File.Move copies+deletes across volumes
                 Logger.LogInformation("Migrated " + fileName + " to " + target);
             }
             catch (Exception ex)
@@ -207,10 +230,10 @@ namespace PS4PKGTool
             }
         }
 
-        private static void MigrateDirectoryBack(string legacyRoot, string dirName)
+        private static void MigrateDirectory(string sourceRoot, string targetRoot, string dirName)
         {
-            string source = Path.Combine(legacyRoot, dirName);
-            string target = Path.Combine(Helper.AppDataDirectory, dirName);
+            string source = Path.Combine(sourceRoot, dirName);
+            string target = Path.Combine(targetRoot, dirName);
             try
             {
                 if (Directory.Exists(target) || !Directory.Exists(source))

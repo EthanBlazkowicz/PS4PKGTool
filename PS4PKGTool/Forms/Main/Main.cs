@@ -4665,7 +4665,7 @@ namespace PS4PKGTool
 
         private void OpenTempDirectory()
         {
-            Process.Start("explorer.exe", Helper.AppDataDirectory);
+                Process.Start("explorer.exe", Helper.UserDataDirectory);
         }
 
         private void DeletePkg()

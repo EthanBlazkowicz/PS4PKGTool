@@ -208,10 +208,10 @@ namespace PS4PKGTool.Utilities.PS4PKGToolHelper
     /// </summary>
     public static class GameFeedbackStore
     {
-        public static string FilePath => Path.Combine(Helper.AppDataDirectory, "game-feedback.jsonl");
+        public static string FilePath => Path.Combine(Helper.UserDataDirectory, "game-feedback.jsonl");
 
         /// <summary>PS4PKGTool-owned session log snapshots, one &lt;ResultId&gt;.log per result.</summary>
-        public static string LogSnapshotsDirectory => Path.Combine(Helper.AppDataDirectory, "Shadps4Reports", "Logs");
+        public static string LogSnapshotsDirectory => Path.Combine(Helper.UserDataDirectory, "Shadps4Reports", "Logs");
 
         private static readonly object Sync = new();
 

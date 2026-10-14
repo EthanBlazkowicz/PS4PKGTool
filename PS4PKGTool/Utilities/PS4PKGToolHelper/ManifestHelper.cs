@@ -45,7 +45,7 @@ namespace PS4PKGTool.Utilities.PS4PKGToolHelper
     public static class ManifestHelper
     {
         public static string ManifestFilePath =>
-            Helper.AppDataDirectory + "manifest.json";
+            Helper.UserDataDirectory + "manifest.json";
 
         public static bool ManifestExists() => File.Exists(ManifestFilePath);
 

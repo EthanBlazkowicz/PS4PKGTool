@@ -52,14 +52,21 @@ namespace PS4PKGTool.Utilities.PS4PKGToolHelper
         }
 
         /// <summary>
-        /// Portable runtime-data root next to the exe: settings
-        /// (Settings.conf), feedback history, report snapshots and every
-        /// regenerable cache (log, JSON downloads, manifest). One folder to
-        /// back up or copy. Tradeoff, accepted by design: a clean rebuild or
-        /// delete-the-folder update resets settings and caches - durability
-        /// was traded for full portability.
+        /// Portable cache root next to the exe: every regenerable cache (BGM,
+        /// trophy data, JSON downloads, curl). Deleting it costs nothing.
         /// </summary>
         public static string AppDataDirectory = AppContext.BaseDirectory + @"AppData\";
+
+        /// <summary>
+        /// Fixed per-user root for durable data that must survive an update
+        /// (settings, library manifest, task queue, feedback, reports, the
+        /// managed shadPS4 builds and the log). Stored in %LOCALAPPDATA% so a
+        /// new build in a new folder reuses everything. Migrated on first run
+        /// from the old exe-adjacent AppData and the legacy %APPDATA% layout.
+        /// </summary>
+        public static string UserDataDirectory = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+            "PS4PKGTool") + Path.DirectorySeparatorChar;
 
         /// <summary>
         /// Creates a short ASCII temp directory for working files.
@@ -90,7 +97,7 @@ namespace PS4PKGTool.Utilities.PS4PKGToolHelper
             return dir;
         }
         public static string Ps5BcJsonFile = AppContext.BaseDirectory + @"AppData\ps5bc.json";
-        public static string PS4PKGToolLogFile = AppContext.BaseDirectory + @"AppData\PS4PKGToolLog.txt";
+        public static string PS4PKGToolLogFile = UserDataDirectory + "PS4PKGToolLog.txt";
 
         public static string RoundBytes(long num)
         {

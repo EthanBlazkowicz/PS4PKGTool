@@ -66,13 +66,13 @@ namespace PS4PKGTool.Utilities.Shadps4
         public const string ManifestFileName = "ps4pkgtool-manifest.json";
 
         /// <summary>
-        /// Default managed root: &lt;exe directory&gt;\AppData\shadPS4 (Helper.AppDataDirectory).
-        /// Historically %LOCALAPPDATA%\PS4PKGTool\shadPS4; installations whose
-        /// settings record a root (shadps4_managed_root) keep using it - the
-        /// recorded root always wins over this default.
+        /// Default managed root: %LOCALAPPDATA%\PS4PKGTool\shadPS4
+        /// (Helper.UserDataDirectory) so installed builds survive updates.
+        /// Installations whose settings record a root (shadps4_managed_root)
+        /// keep using it - the recorded root always wins over this default.
         /// </summary>
         public static string DefaultRootPath()
-            => Path.Combine(Helper.AppDataDirectory, "shadPS4");
+            => Path.Combine(Helper.UserDataDirectory, "shadPS4");
 
         private readonly string _root;
 

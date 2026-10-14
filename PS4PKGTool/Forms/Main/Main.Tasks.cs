@@ -40,7 +40,7 @@ public partial class Main
 
     private void InitializeTaskQueue()
     {
-        _taskQueue.EnablePersistence(Path.Combine(AppContext.BaseDirectory, "AppData", "task-queue.json"), RestoreQueuedTask);
+                _taskQueue.EnablePersistence(Path.Combine(Helper.UserDataDirectory, "task-queue.json"), RestoreQueuedTask);
         _taskQueue.TasksChanged += TaskQueue_TasksChanged;
         FormClosing += Main_FormClosing;
         taskRefreshTimer.Interval = 250;

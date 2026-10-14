@@ -656,8 +656,8 @@ namespace PS4PKGTool
 
         private void btnOpenAppData_Click(object sender, EventArgs e)
         {
-            if (Directory.Exists(AppDataDirectory))
-                Process.Start("explorer.exe", AppDataDirectory);
+            if (Directory.Exists(UserDataDirectory))
+                Process.Start("explorer.exe", UserDataDirectory);
         }
 
         private void btnScanStagedPkgs_Click(object sender, EventArgs e)
