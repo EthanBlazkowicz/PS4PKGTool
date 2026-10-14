@@ -403,7 +403,6 @@ namespace PS4PKGTool.Utilities.Settings
             }
 
             NormalizePkgDirectories(appSettings_.PkgDirectories);
-            NormalizeShadps4Paths(appSettings_);
             MigrateShadps4ActiveKeys(appSettings_);
             return appSettings_;
         }
@@ -527,86 +526,6 @@ namespace PS4PKGTool.Utilities.Settings
         {
             string name = Path.GetFileName(path ?? "");
             return name.Equals(Shadps4EnvironmentResolver.QtLauncherFileName, StringComparison.OrdinalIgnoreCase);
-        }
-
-        /// <summary>
-        /// Rewrites shadPS4 paths recorded against the historical exe-adjacent
-        /// AppData layout (&lt;exe dir&gt;\AppData\shadPS4\...) to the fixed
-        /// per-user folder the data is migrated to on first run. The old
-        /// absolute path goes stale as soon as the exe moves (e.g. a new build
-        /// folder), which made the setup wizard offer a folder that no longer
-        /// exists. The "\AppData\shadPS4" segment is unambiguous - a real
-        /// per-user profile path is "\AppData\Local\..." and never matches.
-        /// </summary>
-        private static void NormalizeShadps4Paths(AppSettings s)
-        {
-            string legacyRoot = s.Shadps4ManagedRoot;
-            s.Shadps4ManagedRoot = RewriteLegacyAppDataPath(s.Shadps4ManagedRoot);
-
-            // The durable root may already exist (a build installed before the
-            // folder change), which made the first-run migration skip the old
-            // store - leaving active builds behind. Move any build folders that
-            // only exist in the legacy store into the durable one so the
-            // recorded active core/launcher keeps resolving.
-            if (!string.Equals(s.Shadps4ManagedRoot, legacyRoot, StringComparison.OrdinalIgnoreCase))
-                MergeLegacyBuilds(legacyRoot, s.Shadps4ManagedRoot);
-
-            s.Shadps4InstallDirectory = RewriteLegacyAppDataPath(s.Shadps4InstallDirectory);
-            s.Shadps4ExecutablePath = RewriteLegacyAppDataPath(s.Shadps4ExecutablePath);
-            s.Shadps4CoreExePath = RewriteLegacyAppDataPath(s.Shadps4CoreExePath);
-            s.Shadps4LauncherExePath = RewriteLegacyAppDataPath(s.Shadps4LauncherExePath);
-            s.Shadps4ActiveCore = RewriteLegacyAppDataPath(s.Shadps4ActiveCore);
-            s.Shadps4ActiveLauncher = RewriteLegacyAppDataPath(s.Shadps4ActiveLauncher);
-        }
-
-        /// <summary>Moves managed build folders missing from the durable store, never overwriting.</summary>
-        private static void MergeLegacyBuilds(string legacyRoot, string newRoot)
-        {
-            try
-            {
-                string src = Path.Combine(legacyRoot, "builds");
-                string dst = Path.Combine(newRoot, "builds");
-                if (!Directory.Exists(src)) return;
-
-                Directory.CreateDirectory(dst);
-                foreach (string dir in Directory.GetDirectories(src))
-                {
-                    string target = Path.Combine(dst, Path.GetFileName(dir));
-                    if (Directory.Exists(target)) continue;
-                    try
-                    {
-                        Directory.Move(dir, target);
-                    }
-                    catch (IOException)
-                    {
-                        CopyDirectory(dir, target); // cross-volume fallback
-                        Directory.Delete(dir, true);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                PS4PKGTool.Utilities.Logger.LogInformation("Legacy shadPS4 build merge failed: " + ex.Message);
-            }
-        }
-
-        private static void CopyDirectory(string sourceDir, string targetDir)
-        {
-            Directory.CreateDirectory(targetDir);
-            foreach (string file in Directory.GetFiles(sourceDir))
-                File.Copy(file, Path.Combine(targetDir, Path.GetFileName(file)));
-            foreach (string dir in Directory.GetDirectories(sourceDir))
-                CopyDirectory(dir, Path.Combine(targetDir, Path.GetFileName(dir)));
-        }
-
-        private static string RewriteLegacyAppDataPath(string value)
-        {
-            if (string.IsNullOrWhiteSpace(value)) return value;
-            const string marker = @"\AppData\shadPS4";
-            int idx = value.IndexOf(marker, StringComparison.OrdinalIgnoreCase);
-            if (idx < 0) return value;
-            return PS4PKGToolHelper.Helper.UserDataDirectory
-                + value.Substring(idx + @"\AppData\".Length);
         }
 
         /// <summary>
