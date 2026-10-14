@@ -414,7 +414,7 @@ namespace PS4PKGTool.Utilities.PS4PKGToolHelper
             }
 
             public static TreeNode currentNode;
-            public static List<TreeNode> rootNodes; // Keep track of the root nodes (Image0 and Sc0)
+            public static List<TreeNode> rootNodes; // Keep track of the flattened root nodes
 
             private static string Nodename_;
 

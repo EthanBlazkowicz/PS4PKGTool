@@ -102,6 +102,11 @@ namespace PS4PKGTool
             if (btnExportTreeView != null) btnExportTreeView.Enabled = false;
             _previewEntryPath = null;
             _previewIsUnityFile = false;
+            _pathMap = new PS4PKGTool.Utilities.PkgInspection.PkgPathMap();
+            _pkgEntries = new List<PkgFileEntry>();
+            _treeRootName = string.Empty;
+            _fileSizes.Clear();
+            _pkgDirectories.Clear();
             CleanupContainerBrowse();
         }
 
@@ -114,6 +119,12 @@ namespace PS4PKGTool
         private int _trophyLoadVersion;
         private readonly ConcurrentDictionary<string, SemaphoreSlim> _trophyExtractionLocks = new(StringComparer.OrdinalIgnoreCase);
         private HashSet<string> _pkgDirectories = new();   // paths that are directories (from orbis D lines)
+        // Logical (flattened) <-> raw entry resolver and the full entry list for the current listing.
+        private PkgPathMap _pathMap = new();
+        private List<PkgFileEntry> _pkgEntries = new();
+        // Name of the single synthetic root folder the flattened tree is shown under
+        // (e.g. the Title ID). Empty when no wrapper is used.
+        private string _treeRootName = string.Empty;
         private int _glvGroupHeaderIndex = -1;   // group header row index last right-clicked in GLV
         private List<string> _glvContextGroupPaths = new();
         private ToolStripMenuItem? _glvGroupTitleMenu;
@@ -6173,19 +6184,29 @@ namespace PS4PKGTool
                     return;
                 }
 
-                PopulateMainFileTree(result);
+                string rootName = Path.GetFileNameWithoutExtension(pkgPath);
+                try
+                {
+                    PkgMetadata meta = PkgMetadataReader.ReadQuick(pkgPath);
+                    if (!string.IsNullOrWhiteSpace(meta?.TITLEID)) rootName = meta.TITLEID;
+                    else if (!string.IsNullOrWhiteSpace(meta?.PS4_Title)) rootName = meta.PS4_Title;
+                }
+                catch { /* fall back to the file name */ }
+
+                PopulateMainFileTree(result, rootName);
                 Logger.LogInformation("PKG file list loaded.");
 
-                // Select the first root so the middle file list is ready before
-                // the user opens the File Browser tab.
+                // The single game-folder root is pre-selected so the middle list
+                // view is ready before the user opens the File Browser tab.
                 if (PKGTreeView.Nodes.Count > 0)
                 {
                     rootNodes = new List<TreeNode>();
                     foreach (TreeNode rootNode in PKGTreeView.Nodes)
                         rootNodes.Add(rootNode);
-                    PKGTreeView.SelectedNode = PKGTreeView.Nodes[0];
-                    TreeView.currentNode = PKGTreeView.Nodes[0];
-                    PKG.NodeFullPath = PKGTreeView.Nodes[0].FullPath;
+                    TreeNode initial = rootNodes.FirstOrDefault(n => n.Nodes.Count > 0) ?? PKGTreeView.Nodes[0];
+                    PKGTreeView.SelectedNode = initial;
+                    TreeView.currentNode = initial;
+                    PKG.NodeFullPath = NodeLogicalPath(initial);
                     PopulateListView();
                     listView1.RefreshLayout();
                     listView1.Refresh();
@@ -6241,7 +6262,7 @@ namespace PS4PKGTool
             session?.Dispose();
         }
 
-        private void PopulateMainFileTree(PkgFileListingResult listing)
+        private void PopulateMainFileTree(PkgFileListingResult listing, string rootName)
         {
             PKGTreeView.BeginUpdate();
             try
@@ -6250,6 +6271,8 @@ namespace PS4PKGTool
                 PKGTreeView.PathSeparator = @"/";
                 PKGTreeView.ImageList = imageList1;
                 _fileSizes.Clear();
+                _pathMap = listing.PathMap;
+                _pkgEntries = listing.Entries.ToList();
                 _pkgDirectories = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
                 foreach (PkgFileEntry entry in listing.Entries)
                 {
@@ -6259,8 +6282,15 @@ namespace PS4PKGTool
                         _fileSizes[entry.FullPath] = entry.Size;
                 }
 
+                // Show the flattened package as ONE game folder (like a decrypted
+                // dump / shadPS4 library folder) instead of the raw layer roots.
+                _treeRootName = string.IsNullOrWhiteSpace(rootName) ? "Game" : rootName;
+                TreeNode wrapper = PKGTreeView.Nodes.Add(_treeRootName, _treeRootName);
+                wrapper.ImageIndex = 0;
+                wrapper.SelectedImageIndex = 0;
                 foreach (PkgFileNode root in listing.Roots)
-                    AddMainFileNode(PKGTreeView.Nodes, root);
+                    AddMainFileNode(wrapper.Nodes, root);
+                wrapper.Expand();
             }
             finally
             {
@@ -6268,6 +6298,25 @@ namespace PS4PKGTool
             }
             toolStripStatusLabel2.Text = "...";
             UpdatePackageActionButtonStates();
+        }
+
+        /// <summary>
+        /// The logical (flattened) path for a tree node, with the synthetic
+        /// single-root wrapper removed. Extraction/preview use this so the
+        /// wrapper name never leaks into PKG entry lookups.
+        /// </summary>
+        private string NodeLogicalPath(TreeNode? node)
+        {
+            if (node == null) return string.Empty;
+            string full = node.FullPath;
+            if (_treeRootName.Length > 0)
+            {
+                if (full.Equals(_treeRootName, StringComparison.Ordinal))
+                    return string.Empty;
+                if (full.StartsWith(_treeRootName + "/", StringComparison.Ordinal))
+                    full = full[(_treeRootName.Length + 1)..];
+            }
+            return full.TrimStart('/');
         }
 
         private void AddMainFileNode(TreeNodeCollection collection, PkgFileNode model)
@@ -6288,7 +6337,7 @@ namespace PS4PKGTool
             if (ShowFolderBrowserDialog(out FolderBrowserDialog fbd))
             {
                 string extractLocation = fbd.SelectedPath;
-                string path = PKGTreeView.SelectedNode.FullPath;
+                string path = NodeLogicalPath(PKGTreeView.SelectedNode);
                 // If it's a directory, add trailing slash
                 if (PKGTreeView.SelectedNode.Nodes.Count > 0 && !path.EndsWith("/"))
                     path += "/";
@@ -6322,7 +6371,6 @@ namespace PS4PKGTool
 
         }
 
-        private BackgroundWorker _extractWorker;
         private BackgroundWorker _selectedExtractWorker;
         // Cancels the in-process PkgReader extraction (Stop Extract button).
         private CancellationTokenSource _extractionCts;
@@ -6388,128 +6436,6 @@ namespace PS4PKGTool
             return false;
         }
 
-        private void ExtractFullPKG()
-        {
-            if (_extractWorker == null || !_extractWorker.IsBusy)
-            {
-                if (Helper.IsOperationRunning)
-                {
-                    ShowWarning("Another operation is already running. Please wait for it to complete.", false);
-                    return;
-                }
-                _extractWorker = new BackgroundWorker { WorkerSupportsCancellation = true };
-                if (ShowFolderBrowserDialog(out FolderBrowserDialog fbd))
-                {
-                    Helper.IsOperationRunning = true;
-                    string extractLocation = fbd.SelectedPath;
-                    btnExtractFullPKG.Text = "Stop Extract";
-                    SetExtractionUiEnabled(false); // lock the app - only the stop button stays usable
-                    _extractionCts = new CancellationTokenSource();
-                    CancellationToken ct = _extractionCts.Token;
-                    var fileProgress = new UiProgress<(int Current, int Total, string CurrentFile)>(p =>
-                    {
-                        if (IsDisposed || _extractionStopRequested || p.Total <= 0)
-                            return;
-                        int completed = Math.Min(p.Current + 1, p.Total);
-                        toolStripProgressBar1.Minimum = 0;
-                        toolStripProgressBar1.Maximum = p.Total;
-                        toolStripProgressBar1.Value = completed;
-                        toolStripStatusLabel2.Text = $"Extracting {completed}/{p.Total}: {p.CurrentFile}";
-                    });
-                    _extractWorker.DoWork += (sender, e) =>
-                    {
-                        this.Invoke((Action)(() =>
-                        {
-                            toolStripProgressBar1.Visible = true;
-                            toolStripProgressBar1.Style = ProgressBarStyle.Blocks;
-                            toolStripProgressBar1.Minimum = 0;
-                            toolStripProgressBar1.Maximum = 1;
-                            toolStripProgressBar1.Value = 0;
-                        }));
-                        // Extraction code here
-                        PkgMetadata PS4_PKG = PkgMetadataReader.Read(PKG.SelectedPKGFilename);
-                        string origPath = PKG.SelectedPKGFilename;
-                        Logger.LogInformation($"Extracting: {Path.GetFileName(origPath)}");
-                        Logger.LogInformation($"Extracting PKG ({origPath})..");
-                        this.Invoke((MethodInvoker)delegate
-                        {
-                            toolStripStatusLabel2.Text = $"Extracting PKG ({origPath})..";
-                        });
-                        extractLocation = $@"{extractLocation}\{PS4_PKG.PS4_Title.SanitizeFileName()}";
-                        Tool.CreateDirectoryIfNotExists(extractLocation);
-
-                        // In-process extraction: the PKG is opened read-only and
-                        // every Sc0 + Image0 entry is decrypted straight into the
-                        // destination - no orbis-pub-cmd spawn, no ASCII temp
-                        // staging, no move step. Unicode paths just work.
-                        try
-                        {
-                            using var reader = new OrbisPkgTool.PkgReader(origPath, DefaultOrbisPasscode);
-                            var failures = reader.ExtractAll(extractLocation, fileProgress,
-                                new OrbisPkgTool.ExtractAllOptions { CancellationToken = ct });
-
-                            if (_extractionStopRequested || _extractWorker.CancellationPending)
-                            {
-                                e.Cancel = true; // so RunWorkerCompleted shows "Extraction cancelled."
-                            }
-                            else if (failures.Count > 0)
-                            {
-                                string summary = string.Join("\n", failures.Take(5).Select(f => $"{f.Path}: {f.Exception.Message}"));
-                                Logger.LogError($"Extraction: {failures.Count} entries failed.\n{summary}");
-                                this.Invoke(() => ShowError($"{failures.Count} entries failed to extract:\n{summary}", true));
-                            }
-                            else
-                            {
-                                Logger.LogInformation($"PKG extracted to \"{extractLocation}\".");
-                                this.Invoke(() => ShowInformation($"PKG extracted.", false));
-                            }
-                        }
-                        catch (OperationCanceledException)
-                        {
-                            e.Cancel = true; // Stop Extract pressed mid-extraction
-                        }
-                    };
-                    _extractWorker.RunWorkerCompleted += (sender, e) =>
-                    {
-                        fileProgress.Dispose();
-                        Helper.IsOperationRunning = false;
-                        SetExtractionUiEnabled(true); // unlock the app (covers cancel/error/success)
-                        this.Invoke((Action)(() =>
-                        {
-                            toolStripProgressBar1.Style = ProgressBarStyle.Blocks;
-                            toolStripProgressBar1.Value = 0;
-                        }));
-                        toolStripStatusLabel2.Text = "...";
-                        btnExtractFullPKG.Text = "Extract full PKG";
-                        if (e.Cancelled)
-                        {
-                            ShowInformation("Extraction cancelled.", true);
-                        }
-                        else if (e.Error != null)
-                        {
-                            Logger.LogError($"Extraction failed: {e.Error.Message}");
-                            ShowError($"Extraction failed:\n{e.Error.Message}", true);
-                        }
-                    };
-                    _extractionStopRequested = false; // new extraction starts clean
-                    _extractWorker.RunWorkerAsync();
-                }
-                else
-                {
-                    Logger.LogInformation("Stopping extraction...");
-                    Helper.IsOperationRunning = false;
-                    _extractionStopRequested = true; // volatile - reliable across the worker thread
-                    try { _extractionCts?.Cancel(); } catch { }
-                    _extractWorker?.CancelAsync();
-                    toolStripProgressBar1.Style = ProgressBarStyle.Blocks;
-                    toolStripProgressBar1.Value = 0;
-                    toolStripStatusLabel2.Text = "...";
-                    btnExtractFullPKG.Text = "Extract full PKG";
-                    ShowInformation("Operation cancelled.", true);
-                }
-            }
-        }
-
         private void ExtractSelectedPKGData(List<string> nodeList, string extractLocation, bool preserveStructure = false)
         {
             var bgw = new BackgroundWorker();
@@ -6529,103 +6455,57 @@ namespace PS4PKGTool
                     toolStripProgressBar1.MarqueeAnimationSpeed = 30;
                 }));
                 string in_path = PKG.SelectedPKGFilename;
-                using var reader = new OrbisPkgTool.PkgReader(in_path, DefaultOrbisPasscode);
-                foreach (var targ_path in nodeList)
+                try
                 {
-                    if (_extractionStopRequested || bgw.CancellationPending)
-                    {
-                        args.Cancel = true;
-                        break;
-                    }
-                    string out_path = "";
-                    bool isDirectory = targ_path.EndsWith("/") || targ_path.EndsWith("\\");
+                    using var reader = new OrbisPkgTool.PkgReader(in_path, DefaultOrbisPasscode);
+                    var (files, dirs) = PkgSelection.Resolve(_pkgEntries, nodeList, preserveStructure);
+                    foreach (string dirRel in dirs)
+                        Directory.CreateDirectory(PkgSelection.SafeDestination(extractLocation, dirRel));
 
-                    if (isDirectory)
+                    foreach (var target in files)
                     {
-                        if (preserveStructure)
+                        if (_extractionStopRequested || bgw.CancellationPending)
                         {
-                            string dirPath = targ_path.TrimEnd('/').Replace("/", @"\");
-                            out_path = $@"{extractLocation}\{dirPath}";
+                            args.Cancel = true;
+                            break;
                         }
-                        else
-                        {
-                            string dirName = Path.GetFileName(targ_path.TrimEnd('/').Replace("/", @"\"));
-                            out_path = $@"{extractLocation}\{dirName}";
-                        }
-                        Tool.CreateDirectoryIfNotExists(out_path);
-                    }
-                    else
-                    {
-                        bool isFileWithoutExtension = !Path.HasExtension(targ_path);
-                        if (isFileWithoutExtension)
-                        {
-                            string normPath = targ_path.Replace("/", @"\");
-                            string itemName = Path.GetFileName(normPath);
-                            if (preserveStructure)
-                            {
-                                string itemRelativeDir = Path.GetDirectoryName(normPath);
-                                out_path = string.IsNullOrEmpty(itemRelativeDir)
-                                    ? $@"{extractLocation}\{itemName}"
-                                    : $@"{extractLocation}\{itemRelativeDir}\{itemName}";
-                            }
-                            else
-                            {
-                                out_path = $@"{extractLocation}\{itemName}";
-                            }
-                        }
-                        else
-                        {
-                            string itemName = Path.GetFileName(targ_path.Replace("/", @"\"));
-                            if (preserveStructure)
-                            {
-                                string itemRelativeDir = Path.GetDirectoryName(targ_path.Replace("/", @"\"));
-                                out_path = string.IsNullOrEmpty(itemRelativeDir)
-                                    ? $@"{extractLocation}\{itemName}"
-                                    : $@"{extractLocation}\{itemRelativeDir}\{itemName}";
-                            }
-                            else
-                            {
-                                out_path = $@"{extractLocation}\{itemName}";
-                            }
-                        }
-                    }
-
-                    // Ensure parent output directory exists
-                    string outDir = Path.GetDirectoryName(out_path);
-                    if (!string.IsNullOrEmpty(outDir) && !Directory.Exists(outDir))
-                        Directory.CreateDirectory(outDir);
-
-                    Logger.LogInformation($"Extracting {targ_path} ({in_path})..");
-                    this.Invoke((MethodInvoker)delegate
-                    {
-                        toolStripStatusLabel2.Text = $"Extracting {targ_path} ({in_path})..";
-                    });
-
-                    // In-process extraction: no spawn, no temp dir, no move.
-                    // Directories keep their structure via ExtractFile; single
-                    // files use ExtractFileTo to land exactly at out_path (no
-                    // Image0\ prefix, parent dir created).
-                    try
-                    {
                         ct.ThrowIfCancellationRequested();
-                        if (isDirectory)
-                            reader.ExtractFile(targ_path.TrimEnd('/'), out_path);
-                        else
-                            reader.ExtractFileTo(targ_path, out_path);
-                        successCount++;
-                        Logger.LogInformation($"File extracted to \"{out_path}\"");
+
+                        string out_path = PkgSelection.SafeDestination(extractLocation, target.DestRel);
+                        string? outDir = Path.GetDirectoryName(out_path);
+                        if (!string.IsNullOrEmpty(outDir))
+                            Directory.CreateDirectory(outDir);
+
+                        Logger.LogInformation($"Extracting {target.Logical} ({in_path})..");
+                        this.Invoke((MethodInvoker)delegate
+                        {
+                            toolStripStatusLabel2.Text = $"Extracting {target.Logical} ({in_path})..";
+                        });
+
+                        try
+                        {
+                            // Exact destination (no Image0/Sc0 prefix); the logical
+                            // path already encodes the flattened structure.
+                            reader.ExtractFileTo(target.Real, out_path);
+                            successCount++;
+                            Logger.LogInformation($"File extracted to \"{out_path}\"");
+                        }
+                        catch (Exception ex)
+                        {
+                            failCount++;
+                            Logger.LogError($"Extraction failed for \"{target.Logical}\": {ex.Message}");
+                            this.Invoke(() => ShowError($"Extraction failed:\n{ex.Message}", true));
+                        }
                     }
-                    catch (OperationCanceledException)
-                    {
-                        args.Cancel = true;
-                        break;
-                    }
-                    catch (Exception ex)
-                    {
-                        failCount++;
-                        Logger.LogError($"Extraction failed for \"{targ_path}\": {ex.Message}");
-                        this.Invoke(() => ShowError($"Extraction failed:\n{ex.Message}", true));
-                    }
+                }
+                catch (OperationCanceledException)
+                {
+                    args.Cancel = true;
+                }
+                catch (Exception ex)
+                {
+                    Logger.LogError($"Extraction failed: {ex.Message}");
+                    this.Invoke(() => ShowError($"Extraction failed:\n{ex.Message}", true));
                 }
             };
             bgw.RunWorkerCompleted += delegate (object s, RunWorkerCompletedEventArgs e)
@@ -6671,29 +6551,22 @@ namespace PS4PKGTool
         {
             string inPath = PKG.SelectedPKGFilename;
             using var reader = new OrbisPkgTool.PkgReader(inPath, DefaultOrbisPasscode);
-            foreach (string targ_path in nodeList)
+            var (files, dirs) = PkgSelection.Resolve(_pkgEntries, nodeList, preserveStructure);
+            foreach (string dirRel in dirs)
+                Directory.CreateDirectory(PkgSelection.SafeDestination(extractLocation, dirRel));
+
+            foreach (var target in files)
             {
-                bool isDirectory = targ_path.EndsWith("/") || targ_path.EndsWith("\\");
+                string out_path = PkgSelection.SafeDestination(extractLocation, target.DestRel);
+                string? outDir = Path.GetDirectoryName(out_path);
+                if (!string.IsNullOrEmpty(outDir))
+                    Directory.CreateDirectory(outDir);
 
-                string out_path = preserveStructure
-                    ? Path.Combine(extractLocation, targ_path.TrimEnd('/').Replace("/", @"\"))
-                    : Path.Combine(extractLocation, Path.GetFileName(targ_path.TrimEnd('/')));
-
-                // Pre-create output directory/file path
-                if (isDirectory)
-                    Directory.CreateDirectory(out_path);
-                else
-                    Directory.CreateDirectory(Path.GetDirectoryName(out_path) ?? extractLocation);
-
-                string arcPath = isDirectory ? targ_path.TrimEnd('/') : targ_path;
                 try
                 {
-                    if (isDirectory)
-                        reader.ExtractFile(arcPath, out_path);
-                    else
-                        reader.ExtractFileTo(arcPath, out_path); // exact dest, no Image0\ prefix
+                    reader.ExtractFileTo(target.Real, out_path); // exact dest, flattened
                 }
-                catch (Exception ex) { Logger.LogWarning($"Drag-drop extract failed for {targ_path}: {ex.Message}"); }
+                catch (Exception ex) { Logger.LogWarning($"Drag-drop extract failed for {target.Logical}: {ex.Message}"); }
             }
         }
 
@@ -6712,7 +6585,7 @@ namespace PS4PKGTool
             if (e.Item is not TreeNode node) return;
 
             if (node.Nodes.Count > 0) return; // directories disabled
-            var nodeList = new List<string> { node.FullPath };
+            var nodeList = new List<string> { NodeLogicalPath(node) };
 
             // Short temp root - see ExtractFullPKG: deep AppData paths + long PKG paths exceed MAX_PATH.
             string dragDir = CreateOrbisTempDir("d");
@@ -6746,7 +6619,7 @@ namespace PS4PKGTool
                 if (item.Tag is not TreeNodeInfo info || info.Node == null) continue;
                 bool isDir = info.Node.Nodes.Count > 0;
                 if (isDir) continue; // drag-drop for directories disabled
-                nodeList.Add(info.Node.FullPath);
+                nodeList.Add(NodeLogicalPath(info.Node));
             }
             if (nodeList.Count == 0) return;
 
@@ -7351,7 +7224,7 @@ namespace PS4PKGTool
                     {
                         if (item.Tag is TreeNodeInfo info && info.Path != "...")
                         {
-                            string path = info.Node?.FullPath ?? info.Path;
+                            string path = info.Node != null ? NodeLogicalPath(info.Node) : info.Path;
                             bool isDir = info.Node != null && info.Node.Nodes.Count > 0;
                             nodeList.Add(isDir ? path + "/" : path);
                         }
@@ -7492,7 +7365,7 @@ namespace PS4PKGTool
                     if (item.Text == "...") continue;
                     if (item.Tag is not TreeNodeInfo info || info.Node == null) continue;
                     bool isDir = info.Node.Nodes.Count > 0;
-                    nodeList.Add(isDir ? info.Node.FullPath + "/" : info.Node.FullPath);
+                    nodeList.Add(isDir ? NodeLogicalPath(info.Node) + "/" : NodeLogicalPath(info.Node));
                 }
                 ExtractSelectedPKGData(nodeList, fbd.SelectedPath, preserveStructure: true);
             }
@@ -8443,7 +8316,7 @@ namespace PS4PKGTool
         private void PKGTreeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
             TreeView.currentNode = e.Node;
-            PKG.NodeFullPath = currentNode.FullPath;
+            PKG.NodeFullPath = NodeLogicalPath(currentNode);
 
             // Find all root nodes
             rootNodes = new List<TreeNode>();
@@ -8466,7 +8339,7 @@ namespace PS4PKGTool
                 if (currentNode.Parent != null)
                 {
                     currentNode = currentNode.Parent;
-                    PKG.NodeFullPath = currentNode.FullPath;
+                    PKG.NodeFullPath = NodeLogicalPath(currentNode);
                     PopulateListView();
                 }
                 else if (currentNode != null && !rootNodes.Contains(currentNode))
@@ -8486,7 +8359,7 @@ namespace PS4PKGTool
             {
                 // Handle clicking on a directory in the ListView
                 currentNode = selectedItem.Node;
-                PKG.NodeFullPath = currentNode.FullPath;
+                PKG.NodeFullPath = NodeLogicalPath(currentNode);
                 PopulateListView();
             }
         }
@@ -8508,7 +8381,7 @@ namespace PS4PKGTool
                     if (currentNode.Parent != null)
                     {
                         currentNode = currentNode.Parent;
-                        PKG.NodeFullPath = currentNode.FullPath;
+                        PKG.NodeFullPath = NodeLogicalPath(currentNode);
                         PopulateListView();
                     }
                     else if (currentNode != null && !rootNodes.Contains(currentNode))
@@ -8528,7 +8401,7 @@ namespace PS4PKGTool
                 {
                     // Handle clicking on a directory in the ListView
                     currentNode = selectedItem.Node;
-                    PKG.NodeFullPath = currentNode.FullPath;
+                    PKG.NodeFullPath = NodeLogicalPath(currentNode);
                     PopulateListView();
                 }
                 else
@@ -8537,7 +8410,7 @@ namespace PS4PKGTool
                     bool isDirItem = listView1.SelectedItems[0].SubItems.Count > 1
                         && listView1.SelectedItems[0].SubItems[1].Text == "Directory";
                     if (!isDirItem)
-                        PreviewEntry(selectedItem.Node.FullPath);
+                        PreviewEntry(NodeLogicalPath(selectedItem.Node));
                 }
             }
         }
@@ -9047,8 +8920,9 @@ namespace PS4PKGTool
             // ExtractFileTo gives an EXACT destination (no Image0\ prefix), so
             // the preview lands flat and a Unity .resS companion sits next to it.
             string destPath = Path.Combine(tempDir, Path.GetFileName(entryPath));
+            string realPath = _pathMap.TryResolveFile(entryPath, out string resolved) ? resolved : entryPath;
             using var reader = new OrbisPkgTool.PkgReader(pkgPath, DefaultOrbisPasscode);
-            reader.ExtractFileTo(entryPath, destPath);
+            reader.ExtractFileTo(realPath, destPath);
             return File.Exists(destPath) ? destPath : "";
         }
 
@@ -9063,7 +8937,8 @@ namespace PS4PKGTool
             {
                 if (candidate.IsDirectory || !IsUnityStreamFile(candidate.Path))
                     continue;
-                string candidateFolder = (Path.GetDirectoryName(candidate.Path) ?? string.Empty).Replace('\\', '/').TrimEnd('/');
+                string candidateLogical = DumpLayout.MapToLogical(candidate.Path);
+                string candidateFolder = (Path.GetDirectoryName(candidateLogical) ?? string.Empty).Replace('\\', '/').TrimEnd('/');
                 if (!string.Equals(folder, candidateFolder, StringComparison.OrdinalIgnoreCase))
                     continue;
                 try { reader.ExtractFileTo(candidate.Path, Path.Combine(tempDir, Path.GetFileName(candidate.Path))); }
@@ -9131,21 +9006,21 @@ namespace PS4PKGTool
 
                 foreach (var item in list)
                 {
-                    string fileName = Path.GetFileNameWithoutExtension(item.Text);
-                    string dir = Path.GetDirectoryName(item.FullPath);
-                    bool isDirectory = item.Nodes.Count > 0 || _pkgDirectories.Contains(item.FullPath);
+                    string logical = NodeLogicalPath(item);
+                    string dir = Path.GetDirectoryName(logical);
+                    bool isDirectory = item.Nodes.Count > 0 || _pkgDirectories.Contains(logical);
 
                     TreeNodeInfo treeNodeInfo = new TreeNodeInfo
                     {
                         Node = item,
-                        Path = item.FullPath
+                        Path = logical
                     };
 
                     ListViewItem listViewItem = new ListViewItem(isDirectory ? "Directory" : "File");
                     listViewItem.Text = item.Text;
                     listViewItem.SubItems.Add(isDirectory ? "Directory" : Path.GetExtension(item.Text).Replace(".", ""));
                     listViewItem.SubItems.Add(dir);
-                    listViewItem.SubItems.Add(isDirectory ? "" : Helper.RoundBytes(_fileSizes.GetValueOrDefault(item.FullPath, 0)));
+                    listViewItem.SubItems.Add(isDirectory ? "" : Helper.RoundBytes(_fileSizes.GetValueOrDefault(logical, 0)));
                     listViewItem.Tag = treeNodeInfo;
                     listViewItem.ImageIndex = isDirectory ? 0 : IconFor(item.Text);
 
@@ -9184,9 +9059,9 @@ namespace PS4PKGTool
                         && rootNodes[0].TreeView != null);
                 if (treeAttached)
                 {
-                    // Search the WHOLE PKG (all root folders: Image0, Sc0, ...),
-                    // not just the current folder - otherwise e.g. Sc0/param.sfo
-                    // is unreachable while the list is focused on Image0.
+                    // Search the WHOLE flattened tree (all root entries), not
+                    // just the current folder - otherwise e.g. sce_sys/param.sfo
+                    // is unreachable while the list is focused on another folder.
                     if (rootNodes != null && rootNodes.Count > 0)
                         foreach (TreeNode root in rootNodes) CollectMatches(root, q);
                     else if (_currentNode != null)
@@ -9205,17 +9080,18 @@ namespace PS4PKGTool
             {
                 bool isDir = child.Nodes.Count > 0;
                 string type = isDir ? "Directory" : Path.GetExtension(child.Text).Replace(".", "");
+                string childLogical = NodeLogicalPath(child);
                 bool matches = child.Text.Contains(query, StringComparison.OrdinalIgnoreCase)
                     || type.Contains(query, StringComparison.OrdinalIgnoreCase)
-                    || child.FullPath.Contains(query, StringComparison.OrdinalIgnoreCase);
+                    || childLogical.Contains(query, StringComparison.OrdinalIgnoreCase);
                 if (matches)
                 {
-                    TreeNodeInfo info = new TreeNodeInfo { Node = child, Path = child.FullPath };
+                    TreeNodeInfo info = new TreeNodeInfo { Node = child, Path = childLogical };
                     var item = new ListViewItem(isDir ? "Directory" : "File");
                     item.Text = child.Text;
                     item.SubItems.Add(type);
-                    item.SubItems.Add(Path.GetDirectoryName(child.FullPath));
-                    item.SubItems.Add(isDir ? "" : Helper.RoundBytes(_fileSizes.GetValueOrDefault(child.FullPath, 0)));
+                    item.SubItems.Add(Path.GetDirectoryName(childLogical));
+                    item.SubItems.Add(isDir ? "" : Helper.RoundBytes(_fileSizes.GetValueOrDefault(childLogical, 0)));
                     item.Tag = info;
                     item.ImageIndex = isDir ? 0 : IconFor(child.Text);
                     listView1.Items.Add(item);

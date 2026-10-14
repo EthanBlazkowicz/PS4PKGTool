@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -8,7 +9,10 @@ namespace PS4PKGTool.Utilities.PkgInspection
 {
     internal sealed class PkgFileEntry
     {
+        /// <summary>Logical (flattened) path shown in the browser.</summary>
         public string FullPath { get; init; } = string.Empty;
+        /// <summary>Raw PKG entry path (Image0/Sc0) used by the engine.</summary>
+        public string RealPath { get; init; } = string.Empty;
         public string Name { get; init; } = string.Empty;
         public string ParentPath { get; init; } = string.Empty;
         public bool IsDirectory { get; init; }
@@ -51,6 +55,8 @@ namespace PS4PKGTool.Utilities.PkgInspection
         public IReadOnlyList<PkgFileEntry> Entries { get; init; } = Array.Empty<PkgFileEntry>();
         public IReadOnlyList<PkgFileNode> Roots { get; init; } = Array.Empty<PkgFileNode>();
         public string ErrorMessage { get; init; } = string.Empty;
+        /// <summary>Logical-path &lt;-&gt; raw-entry resolver for extraction/preview.</summary>
+        public PkgPathMap PathMap { get; init; } = new PkgPathMap();
 
         /// <summary>Vestigial: kept for callers written against the old
         /// orbis-pub-cmd pipeline. Always false because the in-process reader
@@ -107,8 +113,15 @@ namespace PS4PKGTool.Utilities.PkgInspection
                 }
             }
 
+            // Directories first, then files, each alphabetical - same rule the
+            // builder applies to every folder's children.
             roots.Sort((left, right) =>
-                StringComparer.OrdinalIgnoreCase.Compare(left.Name, right.Name));
+            {
+                int directoryOrder = right.IsDirectory.CompareTo(left.IsDirectory);
+                return directoryOrder != 0
+                    ? directoryOrder
+                    : StringComparer.OrdinalIgnoreCase.Compare(left.Name, right.Name);
+            });
             foreach (PkgFileNode root in roots)
                 root.SortChildren();
             return roots;
@@ -165,25 +178,32 @@ namespace PS4PKGTool.Utilities.PkgInspection
                     }, cancellationToken).ConfigureAwait(false);
 
                 var entries = new List<PkgFileEntry>(files.Count);
+                var pathMap = new PkgPathMap();
                 foreach (OrbisPkgTool.PkgFileEntry file in files)
                 {
-                    string fullPath = file.Path.Replace('\\', '/');
+                    string realPath = file.Path.Replace('\\', '/');
+                    string fullPath = DumpLayout.MapToLogical(realPath);
+                    if (fullPath.Length == 0)
+                        continue; // bare layer root (Image0) maps onto the browser root
                     int separator = fullPath.LastIndexOf('/');
                     entries.Add(new PkgFileEntry
                     {
                         FullPath = fullPath,
-                        Name = file.Name,
+                        RealPath = realPath,
+                        Name = separator < 0 ? fullPath : fullPath[(separator + 1)..],
                         ParentPath = separator < 0 ? string.Empty : fullPath[..separator],
                         IsDirectory = file.IsDirectory,
                         Size = file.Size
                     });
+                    pathMap.Add(realPath, fullPath);
                 }
 
                 return new PkgFileListingResult
                 {
                     Succeeded = true,
                     Entries = entries,
-                    Roots = new PkgFileTreeBuilder().Build(entries)
+                    Roots = new PkgFileTreeBuilder().Build(entries),
+                    PathMap = pathMap
                 };
             }
             catch (OperationCanceledException)
@@ -259,5 +279,60 @@ namespace PS4PKGTool.Utilities.PkgInspection
             }
             _lifetimeCancellation.Dispose();
         }
+    }
+
+    /// <summary>
+    /// Resolves a browser selection (logical/flattened paths) to the real PKG
+    /// entries to extract. On a collision the Image0 (PFS) copy wins. Produces
+    /// both the files to write and the directories to create (so empty folders
+    /// survive a partial extraction).
+    /// </summary>
+    internal static class PkgSelection
+    {
+        public static (List<(string Logical, string Real, string DestRel)> Files, List<string> Dirs) Resolve(
+            IReadOnlyList<PkgFileEntry> entries, IEnumerable<string> selections, bool preserveStructure)
+        {
+            // An empty selection is the synthetic game root -> select the whole
+            // package (its logical prefix "" matches everything).
+            List<string> prefixes = selections
+                .Select(s => s.TrimEnd('/', '\\').Replace('\\', '/'))
+                .Distinct(StringComparer.OrdinalIgnoreCase)
+                .ToList();
+            if (prefixes.Count == 0)
+                prefixes.Add(string.Empty);
+
+            var files = new Dictionary<string, (string Real, string DestRel)>(StringComparer.OrdinalIgnoreCase);
+            var dirs = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
+            foreach (PkgFileEntry entry in entries)
+            {
+                string? selection = null;
+                foreach (string prefix in prefixes)
+                {
+                    if (DumpLayout.IsUnderLogical(entry.FullPath, prefix)) { selection = prefix; break; }
+                }
+                if (selection == null) continue;
+
+                string destRel = DumpLayout.DestinationRelative(entry.FullPath, selection, preserveStructure);
+                if (entry.IsDirectory)
+                {
+                    dirs.Add(destRel);
+                    continue;
+                }
+
+                if (!files.TryGetValue(entry.FullPath, out var existing)
+                    || (IsImage0(entry.RealPath) && !IsImage0(existing.Real)))
+                    files[entry.FullPath] = (entry.RealPath, destRel);
+            }
+
+            return (files.Select(kv => (kv.Key, kv.Value.Real, kv.Value.DestRel)).ToList(), dirs.ToList());
+        }
+
+        /// <summary>Resolves a logical destination safely under the extraction root.</summary>
+        public static string SafeDestination(string root, string relative)
+            => DumpLayout.SafeDestination(root, relative);
+
+        private static bool IsImage0(string realPath)
+            => realPath.StartsWith("Image0/", StringComparison.OrdinalIgnoreCase);
     }
 }

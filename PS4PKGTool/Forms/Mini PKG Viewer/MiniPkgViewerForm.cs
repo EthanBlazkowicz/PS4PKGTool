@@ -39,6 +39,8 @@ namespace PS4PKGTool
         private PkgEntryInspectionSession _entrySession;
         private TrophyInspectionSession _trophySession;
         private PkgFileListingSession _fileListingSession;
+        private PkgPathMap _pathMap = new();
+        private List<PkgFileEntry> _pkgEntries = new();
         private readonly CancellationTokenSource _loadCancellation = new CancellationTokenSource();
         // Set on the UI thread when Stop Extract is clicked; read by the
         // extraction worker after orbis-pub-cmd dies. volatile so the flag
@@ -496,12 +498,26 @@ namespace PS4PKGTool
                 if (_resourcesReleased || IsDisposed)
                     return;
 
+                _pathMap = result.PathMap;
+                _pkgEntries = result.Entries.ToList();
                 tvFiles.BeginUpdate();
                 try
                 {
                     tvFiles.Nodes.Clear();
+                    // One game-folder root (like a dump / shadPS4 library folder).
+                    string rootName = !string.IsNullOrWhiteSpace(_snapshot?.TitleId)
+                        ? _snapshot!.TitleId
+                        : Path.GetFileNameWithoutExtension(_currentPackagePath);
+                    var wrapper = new TreeNode(rootName)
+                    {
+                        Tag = new PkgFileNode { Name = rootName, FullPath = string.Empty, IsDirectory = true },
+                        ImageIndex = 0,
+                        SelectedImageIndex = 0
+                    };
+                    tvFiles.Nodes.Add(wrapper);
                     foreach (PkgFileNode root in result.Roots)
-                        AddViewerFileNode(tvFiles.Nodes, root);
+                        AddViewerFileNode(wrapper.Nodes, root);
+                    wrapper.Expand();
                 }
                 finally
                 {
@@ -538,7 +554,8 @@ namespace PS4PKGTool
                
                 labelDisplayTotalPKG.Text = "Ready";
                 if (tvFiles.Nodes.Count > 0)
-                    tvFiles.SelectedNode = tvFiles.Nodes[0];
+                    tvFiles.SelectedNode = tvFiles.Nodes.Cast<TreeNode>()
+                        .FirstOrDefault(n => n.Nodes.Count > 0) ?? tvFiles.Nodes[0];
             }
             catch (OperationCanceledException)
             {
@@ -789,9 +806,10 @@ namespace PS4PKGTool
             try
             {
                 string extracted = Path.Combine(previewDir, Path.GetFileName(file.FullPath));
+                string realPath = _pathMap.TryResolveFile(file.FullPath, out string resolved) ? resolved : file.FullPath;
                 using (var reader = new OrbisPkgTool.PkgReader(_currentPackagePath, _fileListingPasscode))
                 {
-                    reader.ExtractFileTo(file.FullPath, extracted);
+                    reader.ExtractFileTo(realPath, extracted);
                     ExtractUnityStreamCompanions(reader, file.FullPath, previewDir);
                 }
 
@@ -975,7 +993,8 @@ namespace PS4PKGTool
             {
                 if (candidate.IsDirectory || !candidate.Path.EndsWith(".resS", StringComparison.OrdinalIgnoreCase))
                     continue;
-                string candidateFolder = (Path.GetDirectoryName(candidate.Path) ?? string.Empty).Replace('\\', '/').TrimEnd('/');
+                string candidateLogical = PS4PKGTool.Utilities.PkgInspection.DumpLayout.MapToLogical(candidate.Path);
+                string candidateFolder = (Path.GetDirectoryName(candidateLogical) ?? string.Empty).Replace('\\', '/').TrimEnd('/');
                 if (!string.Equals(folder, candidateFolder, StringComparison.OrdinalIgnoreCase))
                     continue;
                 try { reader.ExtractFileTo(candidate.Path, Path.Combine(previewDir, Path.GetFileName(candidate.Path))); }
@@ -1165,41 +1184,29 @@ namespace PS4PKGTool
         {
             try
             {
-                bool isDirectory = targetPath.EndsWith("/") || targetPath.EndsWith("\\");
-                string normalized = targetPath.TrimEnd('/').Replace("/", @"\");
-
-                string outPath;
-                if (isDirectory)
-                {
-                    outPath = preserveStructure
-                        ? Path.Combine(extractLocation, normalized)
-                        : Path.Combine(extractLocation, Path.GetFileName(normalized));
-                }
-                else
-                {
-                    string itemName = Path.GetFileName(normalized);
-                    string itemRelativeDir = Path.GetDirectoryName(normalized);
-                    outPath = preserveStructure && !string.IsNullOrEmpty(itemRelativeDir)
-                        ? Path.Combine(extractLocation, itemRelativeDir, itemName)
-                        : Path.Combine(extractLocation, itemName);
-                }
-
-                string outDir = Path.GetDirectoryName(outPath);
-                if (!string.IsNullOrEmpty(outDir))
-                    Directory.CreateDirectory(outDir);
+                var (files, dirs) = PkgSelection.Resolve(_pkgEntries, new[] { targetPath }, preserveStructure);
+                foreach (string dirRel in dirs)
+                    Directory.CreateDirectory(PkgSelection.SafeDestination(extractLocation, dirRel));
 
                 using var reader = new OrbisPkgTool.PkgReader(sourcePath, _fileListingPasscode);
-                if (isDirectory)
-                    reader.ExtractFile(targetPath.TrimEnd('/'), outPath);
-                else
-                    // Single file: land exactly at outPath (ExtractFileTo adds no
-                    // Image0\ prefix and creates the parent dir).
-                    reader.ExtractFileTo(targetPath, outPath);
+                int count = 0;
+                foreach (var target in files)
+                {
+                    if (_extractionStopRequested)
+                        return (false, "Cancelled");
 
-                if (_extractionStopRequested)
-                    return (false, "Cancelled");
+                    string outPath = PkgSelection.SafeDestination(extractLocation, target.DestRel);
+                    string? outDir = Path.GetDirectoryName(outPath);
+                    if (!string.IsNullOrEmpty(outDir))
+                        Directory.CreateDirectory(outDir);
 
-                Logger.LogInformation($"Mini viewer extracted entry: {targetPath} -> {outPath}");
+                    // Exact destination (no Image0/Sc0 prefix); logical path already
+                    // encodes the flattened structure.
+                    reader.ExtractFileTo(target.Real, outPath);
+                    count++;
+                }
+
+                Logger.LogInformation($"Mini viewer extracted {count} file(s): {targetPath}");
                 return (true, "");
             }
             catch (Exception ex)
@@ -1725,9 +1732,16 @@ namespace PS4PKGTool
             }
 
             if (succeeded)
-                ShowInformation($"PKG extracted to:\n{extractLocation}", true);
+            {
+                string text = string.IsNullOrWhiteSpace(message)
+                    ? $"PKG extracted to:\n{extractLocation}"
+                    : $"PKG extracted to:\n{extractLocation}\n\n{message}";
+                ShowInformation(text, true);
+            }
             else
+            {
                 ShowError(message, true);
+            }
         }
 
         /// <summary>
@@ -1742,7 +1756,8 @@ namespace PS4PKGTool
         {
             var service = new PkgExtractionService(_fileListingPasscode);
             return service.ExtractFullAsync(sourcePath, extractLocation, ct: cancellationToken,
-                fileProgress: progress).GetAwaiter().GetResult();
+                fileProgress: progress, logCompletion: true,
+                layout: ExtractLayout.Merged).GetAwaiter().GetResult();
         }
 
         /// <summary>Shared folder-name sanitization (same rules as the main app's extract flows).</summary>

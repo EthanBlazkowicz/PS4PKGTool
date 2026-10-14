@@ -10,7 +10,7 @@ namespace PS4PKGTool.Core.Tasks;
 
 public interface IPackageTaskFactory
 {
-    QueuedPackageTask CreateFullExtraction(string packagePath, string outputDirectory, string? displayName = null, Guid? id = null, PersistedQueueTask? saved = null);
+    QueuedPackageTask CreateFullExtraction(string packagePath, string outputDirectory, string? displayName = null, Guid? id = null, PersistedQueueTask? saved = null, ExtractLayout layout = ExtractLayout.Merged);
     QueuedPackageTask? Restore(PersistedQueueTask saved);
     QueuedPackageTask CreateMerge(PkgMergeRequest request, string displayName, Guid? id = null, PersistedQueueTask? saved = null);
     QueuedPackageTask CreateFfpfsc(FfpfscConvertOptions options, string displayName, Guid? id = null, PersistedQueueTask? saved = null);
@@ -21,18 +21,21 @@ public sealed class PackageTaskFactory(IPackageExtractionService? extractionServ
 {
     private readonly IPackageExtractionService _extractionService = extractionService ?? new PkgExtractionService();
 
-    public QueuedPackageTask CreateFullExtraction(string packagePath, string outputDirectory, string? displayName = null, Guid? id = null, PersistedQueueTask? saved = null)
+    public QueuedPackageTask CreateFullExtraction(string packagePath, string outputDirectory, string? displayName = null, Guid? id = null, PersistedQueueTask? saved = null, ExtractLayout layout = ExtractLayout.Merged)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(packagePath);
         ArgumentException.ThrowIfNullOrWhiteSpace(outputDirectory);
         var task = new QueuedPackageTask("Full Extract", displayName ?? $"Extract: {Path.GetFileName(packagePath)}", packagePath, outputDirectory,
             async (queued, cancellationToken) =>
             {
-                var progress = new Progress<(int Current, int Total, string CurrentFile)>(p => queued.Report(
-                    new QueueTaskProgress("Extracting PKG", 1, 1, CurrentItems: p.Current + 1, TotalItems: p.Total, CurrentFile: p.CurrentFile)));
-                var result = await _extractionService.ExtractFullAsync(packagePath, outputDirectory, null, cancellationToken, progress).ConfigureAwait(false);
+                var progress = new Progress<(int Current, int Total, string CurrentFile)>(p =>
+                {
+                    string file = layout == ExtractLayout.Merged ? DumpLayout.MapToLogical(p.CurrentFile) : p.CurrentFile;
+                    queued.Report(new QueueTaskProgress("Extracting PKG", 1, 1, CurrentItems: p.Current + 1, TotalItems: p.Total, CurrentFile: file));
+                });
+                var result = await _extractionService.ExtractFullAsync(packagePath, outputDirectory, null, cancellationToken, progress, logCompletion: true, layout: layout).ConfigureAwait(false);
                 return new QueueTaskExecutionResult(result.Succeeded, result.Message, outputDirectory);
-            }, JsonSerializer.Serialize(new ExtractionTaskPayload(outputDirectory)), id);
+            }, JsonSerializer.Serialize(new ExtractionTaskPayload { OutputDirectory = outputDirectory, Layout = layout }), id);
         if (saved is not null) task.RestoreState(saved);
         return task;
     }
@@ -44,7 +47,7 @@ public sealed class PackageTaskFactory(IPackageExtractionService? extractionServ
         try
         {
             var payload = JsonSerializer.Deserialize<ExtractionTaskPayload>(saved.Payload);
-            return payload is null ? null : CreateFullExtraction(saved.Source, payload.OutputDirectory, saved.DisplayName, saved.Id, saved);
+            return payload is null ? null : CreateFullExtraction(saved.Source, payload.OutputDirectory, saved.DisplayName, saved.Id, saved, payload.Layout);
         }
         catch (JsonException) { return null; }
     }
@@ -71,6 +74,13 @@ public sealed class PackageTaskFactory(IPackageExtractionService? extractionServ
         }, JsonSerializer.Serialize(options with { Passcode = null }), id); if (saved is not null) task.RestoreState(saved); return task;
     }
 
-    private sealed record ExtractionTaskPayload(string OutputDirectory);
+    // No primary constructor: System.Text.Json uses the parameterless constructor
+    // and init properties, so an older payload without Layout keeps the default
+    // (Merged) instead of silently falling back to Raw.
+    private sealed record ExtractionTaskPayload
+    {
+        public string OutputDirectory { get; init; } = string.Empty;
+        public ExtractLayout Layout { get; init; } = ExtractLayout.Merged;
+    }
     private sealed record MergeTaskPayload(string BasePkgPath, string UpdatePkgPath, string? OutputPkgPath, string? BasePasscode, string? UpdatePasscode, bool ValidateAfterBuild, PfscMode PfscMode, int WorkerCount, string? WorkDirectory, bool KeepWorkDirectory, bool CleanupWorkDirectoryOnFailure, string? Title, string? TitleId, string? ContentId);
 }

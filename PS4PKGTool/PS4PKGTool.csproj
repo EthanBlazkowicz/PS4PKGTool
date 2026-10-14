@@ -50,10 +50,10 @@
     <Copyright>Copyright © pearlxcore</Copyright>
     <!-- Note: GenerateAssemblyInfo=false, so these are not used at build time.
          The real version attributes live in Properties/AssemblyInfo.cs — keep them in sync. -->
-    <AssemblyVersion>1.8.0.0</AssemblyVersion>
+    <AssemblyVersion>1.9.0.0</AssemblyVersion>
     <StartupObject>PS4PKGTool.Program</StartupObject>
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <FileVersion>1.8.0.0</FileVersion>
+    <FileVersion>1.9.0.0</FileVersion>
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="Utilities\PkgInspection\PkgExtractionService.cs" />
@@ -137,5 +137,11 @@
       <SingleFilePublishSymbols Include="$(PublishDir)*.pdb" />
     </ItemGroup>
     <Delete Files="$(PublishDir)$(TargetName).dll.config;@(SingleFilePublishSymbols)" />
+    <!-- The OrbisPkgTool CLI is referenced in-process as a DLL (bundled into the
+         single file); its own apphost/deps/runtimeconfig are not part of the app. -->
+    <Delete Files="$(PublishDir)OrbisPkgTool.exe;
+                   $(PublishDir)OrbisPkgTool.deps.json;
+                   $(PublishDir)OrbisPkgTool.runtimeconfig.json;
+                   $(PublishDir)OrbisPkgTool.pdb" />
   </Target>
 </Project>

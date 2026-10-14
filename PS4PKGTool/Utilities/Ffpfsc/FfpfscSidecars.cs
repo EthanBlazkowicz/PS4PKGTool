@@ -54,7 +54,7 @@ public sealed record FfpfscConvertResult(
 public static class FfpfscConvertStages
 {
     public const string Extracting = "Extracting PKG";
-    public const string Restructuring = "Restructuring Sc0 into Image0/sce_sys";
+    public const string Restructuring = "Restructuring system files";
     public const string ProjectingParamJson = "Projecting param.json";
     public const string RepairingNpbind = "Repairing npbind.dat footer";
     public const string Building = "Building FFPFSC image";

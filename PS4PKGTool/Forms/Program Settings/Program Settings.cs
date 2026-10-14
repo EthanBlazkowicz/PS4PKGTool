@@ -109,14 +109,7 @@ namespace PS4PKGTool
 
             AutoSortRow.Checked = appSettings_.AutoSortRow;
             PKGColorLabeling.Checked = appSettings_.PkgColorLabel;
-            darkLabelGamePkgColorLabel.ForeColor = (appSettings_.GamePkgForeColor == null) ? Color.FromArgb(220, 220, 220) : appSettings_.GamePkgForeColor;
-            darkLabelPatchPkgColorLabel.ForeColor = (appSettings_.PatchPkgForeColor == null) ? Color.FromArgb(220, 220, 220) : appSettings_.PatchPkgForeColor;
-            darkLabelAddonPkgColorLabel.ForeColor = (appSettings_.AddonPkgForeColor == null) ? Color.FromArgb(220, 220, 220) : appSettings_.AddonPkgForeColor;
-            darkLabelAppPkgColorLabel.ForeColor = (appSettings_.AppPkgForeColor == null) ? Color.FromArgb(220, 220, 220) : appSettings_.AppPkgForeColor;
-            darkLabelGamePkgColorLabel.BackColor = (appSettings_.GamePkgBackColor == null) ? Color.FromArgb(60, 63, 65) : appSettings_.GamePkgBackColor;
-            darkLabelPatchPkgColorLabel.BackColor = (appSettings_.PatchPkgBackColor == null) ? Color.FromArgb(60, 63, 65) : appSettings_.PatchPkgBackColor;
-            darkLabelAddonPkgColorLabel.BackColor = (appSettings_.AddonPkgBackColor == null) ? Color.FromArgb(60, 63, 65) : appSettings_.AddonPkgBackColor;
-            darkLabelAppPkgColorLabel.BackColor = (appSettings_.AppPkgBackColor == null) ? Color.FromArgb(60, 63, 65) : appSettings_.AppPkgBackColor;
+            ApplyPkgColorSwatches();
             tbCustomNamePattern.Text = appSettings_.RenameCustomName;
 
             tbPS4IP.Text = appSettings_.Ps4Ip;
@@ -208,17 +201,18 @@ namespace PS4PKGTool
             appSettings_.AutoSortRow = AutoSortRow.Checked;
             appSettings_.PkgColorLabel =PKGColorLabeling.Checked;
 
-            // fore color
-            appSettings_.GamePkgForeColor = darkLabelGamePkgColorLabel.ForeColor;
-            appSettings_.PatchPkgForeColor = darkLabelPatchPkgColorLabel.ForeColor;
-            appSettings_.AddonPkgForeColor = darkLabelAddonPkgColorLabel.ForeColor;
-            appSettings_.AppPkgForeColor = darkLabelAppPkgColorLabel.ForeColor;
+            // fore color (stored as empty when it is only the theme default, so it keeps
+            // following the active theme instead of baking a fixed colour)
+            appSettings_.GamePkgForeColor = StorePkgColor(darkLabelGamePkgColorLabel.ForeColor, DefaultPkgForeColor);
+            appSettings_.PatchPkgForeColor = StorePkgColor(darkLabelPatchPkgColorLabel.ForeColor, DefaultPkgForeColor);
+            appSettings_.AddonPkgForeColor = StorePkgColor(darkLabelAddonPkgColorLabel.ForeColor, DefaultPkgForeColor);
+            appSettings_.AppPkgForeColor = StorePkgColor(darkLabelAppPkgColorLabel.ForeColor, DefaultPkgForeColor);
 
             // back color
-            appSettings_.GamePkgBackColor = darkLabelGamePkgColorLabel.BackColor;
-            appSettings_.PatchPkgBackColor = darkLabelPatchPkgColorLabel.BackColor;
-            appSettings_.AddonPkgBackColor = darkLabelAddonPkgColorLabel.BackColor;
-            appSettings_.AppPkgBackColor = darkLabelAppPkgColorLabel.BackColor;
+            appSettings_.GamePkgBackColor = StorePkgColor(darkLabelGamePkgColorLabel.BackColor, DefaultPkgBackColor);
+            appSettings_.PatchPkgBackColor = StorePkgColor(darkLabelPatchPkgColorLabel.BackColor, DefaultPkgBackColor);
+            appSettings_.AddonPkgBackColor = StorePkgColor(darkLabelAddonPkgColorLabel.BackColor, DefaultPkgBackColor);
+            appSettings_.AppPkgBackColor = StorePkgColor(darkLabelAppPkgColorLabel.BackColor, DefaultPkgBackColor);
 
             appSettings_.RenameCustomName = tbCustomNamePattern.Text;
             appSettings_.OrbisTempDirectory = tbOrbisTempDirectory.Text.Trim();
@@ -420,6 +414,33 @@ namespace PS4PKGTool
             Tool.OpenWebLink("https://nodejs.org/en/download/");
         }
 
+        // ── PKG colour-label swatches (theme-aware) ───────────────────────
+
+        /// <summary>Default PKG label colours: the active theme's own text/background.</summary>
+        private static Color DefaultPkgForeColor => Colors.LightText;
+        private static Color DefaultPkgBackColor => Colors.GreyBackground;
+
+        /// <summary>Shows the saved PKG label colours on the preview swatches, falling back to
+        /// the active theme when a colour is unset.</summary>
+        private void ApplyPkgColorSwatches()
+        {
+            SetPkgColorSwatch(darkLabelGamePkgColorLabel, appSettings_.GamePkgForeColor, appSettings_.GamePkgBackColor);
+            SetPkgColorSwatch(darkLabelPatchPkgColorLabel, appSettings_.PatchPkgForeColor, appSettings_.PatchPkgBackColor);
+            SetPkgColorSwatch(darkLabelAddonPkgColorLabel, appSettings_.AddonPkgForeColor, appSettings_.AddonPkgBackColor);
+            SetPkgColorSwatch(darkLabelAppPkgColorLabel, appSettings_.AppPkgForeColor, appSettings_.AppPkgBackColor);
+        }
+
+        private static void SetPkgColorSwatch(DarkLabel label, Color fore, Color back)
+        {
+            label.ForeColor = fore.IsEmpty ? DefaultPkgForeColor : fore;
+            label.BackColor = back.IsEmpty ? DefaultPkgBackColor : back;
+        }
+
+        /// <summary>Stores a swatch colour, or <see cref="Color.Empty"/> when it is only the
+        /// theme default, so the setting keeps following the theme instead of baking it in.</summary>
+        private static Color StorePkgColor(Color current, Color themeDefault)
+            => current == themeDefault ? Color.Empty : current;
+
         private void SetPKGLabelColor_Click(object sender, EventArgs args)
         {
             if (!(sender is Button clickedButton))
@@ -428,17 +449,18 @@ namespace PS4PKGTool
 
             if (clickedButton == btnResetPkgLabelColor)
             {
-                darkLabelGamePkgColorLabel.ForeColor = Color.FromArgb(220, 220, 220);
-                darkLabelGamePkgColorLabel.BackColor = Color.FromArgb(60, 63, 65);
+                // Reset to the active theme's own colours (not a fixed dark grey).
+                darkLabelGamePkgColorLabel.ForeColor = DefaultPkgForeColor;
+                darkLabelGamePkgColorLabel.BackColor = DefaultPkgBackColor;
 
-                darkLabelPatchPkgColorLabel.ForeColor = Color.FromArgb(220, 220, 220);
-                darkLabelPatchPkgColorLabel.BackColor = Color.FromArgb(60, 63, 65);
+                darkLabelPatchPkgColorLabel.ForeColor = DefaultPkgForeColor;
+                darkLabelPatchPkgColorLabel.BackColor = DefaultPkgBackColor;
 
-                darkLabelAddonPkgColorLabel.ForeColor = Color.FromArgb(220, 220, 220);
-                darkLabelAddonPkgColorLabel.BackColor = Color.FromArgb(60, 63, 65);
+                darkLabelAddonPkgColorLabel.ForeColor = DefaultPkgForeColor;
+                darkLabelAddonPkgColorLabel.BackColor = DefaultPkgBackColor;
 
-                darkLabelAppPkgColorLabel.ForeColor = Color.FromArgb(220, 220, 220);
-                darkLabelAppPkgColorLabel.BackColor = Color.FromArgb(60, 63, 65);
+                darkLabelAppPkgColorLabel.ForeColor = DefaultPkgForeColor;
+                darkLabelAppPkgColorLabel.BackColor = DefaultPkgBackColor;
             }
             else
             {

@@ -74,7 +74,7 @@ public sealed class Ps4FfpfscConverterService
 
             string image0 = Path.Combine(extracted, "Image0");
             if (!Directory.Exists(image0))
-                return (false, "The package does not contain an Image0 layer (no game data to convert).", null);
+                return (false, "The package does not contain an application image (no game data to convert).", null);
 
             // ── Step 2: restructure Sc0 → Image0/sce_sys ────────────────
             progress?.Report(new FfpfscConvertProgress(FfpfscConvertStages.Restructuring, 2, TotalSteps));

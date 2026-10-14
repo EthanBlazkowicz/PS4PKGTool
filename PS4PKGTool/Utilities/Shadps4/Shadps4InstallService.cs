@@ -241,70 +241,10 @@ namespace PS4PKGTool.Utilities.Shadps4
         /// </summary>
         public static void FlattenToDumpLayout(string folder)
         {
-            // Image0 contents become the game-folder root.
-            string image0 = Path.Combine(folder, "Image0");
-            if (Directory.Exists(image0))
-            {
-                foreach (string entry in Directory.GetFileSystemEntries(image0))
-                {
-                    string dest = Path.Combine(folder, Path.GetFileName(entry));
-                    if (Directory.Exists(entry))
-                    {
-                        if (Directory.Exists(dest))
-                            MergeDirectory(entry, dest);
-                        else
-                            Directory.Move(entry, dest);
-                    }
-                    else
-                    {
-                        if (!File.Exists(dest)) File.Move(entry, dest);
-                    }
-                }
-                Directory.Delete(image0, true);
-            }
-
-            // Sc0 contents belong under sce_sys.
-            string sc0 = Path.Combine(folder, "Sc0");
-            if (Directory.Exists(sc0))
-            {
-                string sceSys = Path.Combine(folder, "sce_sys");
-                Directory.CreateDirectory(sceSys);
-                foreach (string entry in Directory.GetFileSystemEntries(sc0))
-                {
-                    if (Directory.Exists(entry) &&
-                        Path.GetFileName(entry).Equals("sce_sys", StringComparison.OrdinalIgnoreCase))
-                    {
-                        // Already a sce_sys subtree - merge its contents directly.
-                        foreach (string sub in Directory.GetFileSystemEntries(entry))
-                        {
-                            string target = Path.Combine(sceSys, Path.GetFileName(sub));
-                            if (Directory.Exists(sub))
-                            {
-                                if (Directory.Exists(target)) MergeDirectory(sub, target);
-                                else Directory.Move(sub, target);
-                            }
-                            else
-                            {
-                                if (!File.Exists(target)) File.Move(sub, target);
-                            }
-                        }
-                        Directory.Delete(entry, true);
-                        continue;
-                    }
-
-                    string dest = Path.Combine(sceSys, Path.GetFileName(entry));
-                    if (Directory.Exists(entry))
-                    {
-                        if (Directory.Exists(dest)) MergeDirectory(entry, dest);
-                        else Directory.Move(entry, dest);
-                    }
-                    else
-                    {
-                        if (!File.Exists(dest)) File.Move(entry, dest); // Image0 copy wins
-                    }
-                }
-                Directory.Delete(sc0, true);
-            }
+            // Shared authority for the raw -> dump mapping (Image0 wins, Sc0 ->
+            // sce_sys, nested Sc0 paths preserved). keepConflicts:false so an
+            // installed game never carries _flatten_conflicts diagnostics.
+            PS4PKGTool.Utilities.PkgInspection.DumpLayout.Flatten(folder, keepConflicts: false);
         }
 
         /// <summary>
@@ -456,24 +396,6 @@ namespace PS4PKGTool.Utilities.Shadps4
                     Logger.LogWarning($"Shadps4Install: rollback could not restore {original}: {ex.Message}");
                 }
             }
-        }
-
-        private static void MergeDirectory(string source, string dest)
-        {
-            foreach (string entry in Directory.GetFileSystemEntries(source))
-            {
-                string target = Path.Combine(dest, Path.GetFileName(entry));
-                if (Directory.Exists(entry))
-                {
-                    if (!Directory.Exists(target)) Directory.Move(entry, target);
-                    else MergeDirectory(entry, target);
-                }
-                else
-                {
-                    if (!File.Exists(target)) File.Move(entry, target);
-                }
-            }
-            Directory.Delete(source, true);
         }
 
         /// <summary>Available free space on the volume that hosts the given directory.</summary>

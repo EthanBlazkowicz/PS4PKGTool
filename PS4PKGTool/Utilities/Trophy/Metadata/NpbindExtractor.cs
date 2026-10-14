@@ -39,7 +39,7 @@ namespace PS4PKGTool.Utilities.TrophyMetadata
 
                 string? id = _resolver.ResolveFromBytes(npbindBytes);
                 return id == null
-                    ? Failure("Sc0/npbind.dat was read, but no valid NPWRxxxxx_00 value was found.")
+                    ? Failure("npbind.dat was read, but no valid NPWRxxxxx_00 value was found.")
                     : new NpbindExtractionResult { NpCommunicationId = id };
             }
             catch (OperationCanceledException) when (cancellationToken.IsCancellationRequested)

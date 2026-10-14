@@ -346,7 +346,8 @@ namespace PS4PKGTool.Shell
                             $"Extracting {completed}/{entry.Total}: {entry.CurrentFile}", percent));
                     });
                     var (succeeded, message) = await new PkgExtractionService(passcode: passcode)
-                        .ExtractFullAsync(path, extractLocation, p, ct, fileProgress).ConfigureAwait(false);
+                        .ExtractFullAsync(path, extractLocation, p, ct, fileProgress, logCompletion: true,
+                            layout: ExtractLayout.Merged).ConfigureAwait(false);
 
                     for (int attempt = 0; attempt < 5; attempt++)
                     {
@@ -362,11 +363,17 @@ namespace PS4PKGTool.Shell
                         passcode = custom;
                         progress.Report(new ShellOperationProgress("Extracting game files..."));
                         (succeeded, message) = await new PkgExtractionService(passcode: passcode)
-                            .ExtractFullAsync(path, extractLocation, p, ct, fileProgress).ConfigureAwait(false);
+                            .ExtractFullAsync(path, extractLocation, p, ct, fileProgress, logCompletion: true,
+                                layout: ExtractLayout.Merged).ConfigureAwait(false);
                     }
 
                     if (succeeded)
-                        return new ShellOperationResult(true, "Extraction complete", null, extractLocation);
+                    {
+                        string detail = string.IsNullOrWhiteSpace(message)
+                            ? "Extraction complete"
+                            : "Extraction complete. " + message;
+                        return new ShellOperationResult(true, detail, null, extractLocation);
+                    }
                     return new ShellOperationResult(false, message);
                 }, ct));
         }
