@@ -1,5 +1,7 @@
 # PS4 PKG Tool
 
+<a href="https://trendshift.io/repositories/116703?utm_source=repository-badge&amp;utm_medium=badge&amp;utm_campaign=badge-repository-116703" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/repositories/116703" alt="pearlxcore%2FPS4PKGTool | Trendshift" width="250" height="55"/></a>
+
 <img src="https://github.com/user-attachments/assets/301cd5c5-fda9-4082-8449-46cf00f75f2a" style="transform: scaleY(-1);" />
 
 [![Github All Releases](https://img.shields.io/github/downloads/pearlxcore/PS4-PKG-Tool/total.svg)](https://github.com/pearlxcore/PS4-PKG-Tool/releases/latest)
